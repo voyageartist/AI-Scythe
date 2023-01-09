@@ -17,4 +17,7 @@ rcpparma_innerproduct <- function(x) {
     .Call('_scythe_rcpparma_innerproduct', PACKAGE = 'scythe', x)
 }
 
-rcpparma_both
+rcpparma_bothproducts <- function(x) {
+    .Call('_scythe_rcpparma_bothproducts', PACKAGE = 'scythe', x)
+}
+
