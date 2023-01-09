@@ -9,4 +9,12 @@ rcpparma_hello_world <- function() {
     .Call('_scythe_rcpparma_hello_world', PACKAGE = 'scythe')
 }
 
-rcpparma_o
+rcpparma_outerproduct <- function(x) {
+    .Call('_scythe_rcpparma_outerproduct', PACKAGE = 'scythe', x)
+}
+
+rcpparma_innerproduct <- function(x) {
+    .Call('_scythe_rcpparma_innerproduct', PACKAGE = 'scythe', x)
+}
+
+rcpparma_both
