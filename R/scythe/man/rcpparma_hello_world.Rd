@@ -32,4 +32,11 @@ rcpparma_bothproducts(x)
   inner products.
   
 }
-\deta
+\details{
+  These are example functions which should be largely
+  self-explanatory. Their main benefit is to demonstrate how to write a
+  function using the Armadillo C++ classes, and to have to such a
+  function accessible from R.
+}
+\references{
+ 
