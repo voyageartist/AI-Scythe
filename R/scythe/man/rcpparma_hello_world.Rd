@@ -23,4 +23,13 @@ rcpparma_bothproducts(x)
   message to the console.
 
   \code{rcpparma_outerproduct()} returns a numeric matrix computed as the
-  outer (
+  outer (vector) product of \code{x}.
+
+  \code{rcpparma_innerproduct()} returns a double computer as the inner
+  (vector) product of \code{x}.
+
+  \code{rcpparma_bothproducts()} returns a list with both the outer and
+  inner products.
+  
+}
+\deta
