@@ -32,4 +32,5 @@ Maintainer: \packageMaintainer{scythe}
 ~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
 }
 \examples{
-~~ simple examples of the most
+~~ simple examples of the most important functions ~~
+}
