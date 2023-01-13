@@ -1,1 +1,2 @@
-rec
+recursive-include src *.txt *.rst *.md
+recursive-include python *.txt *.rst *.md
