@@ -15,4 +15,12 @@ def loadMNISTTrainingSet(location = "."):
 
     X_filepath = os.path.join(location, "train-images-idx3-ubyte")
     with open(X_filepath, "rb") as X_file:
-        _, _, instances, features = struct.unpack(">IIII", X_file.re
+        _, _, instances, features = struct.unpack(">IIII", X_file.read(16))
+        images = np.fromfile(
+            X_file, dtype = np.uint8).reshape(
+                len(labels), instances, features)
+    print("MNIST training set loaded: %i images" % len(images))
+    return images, labels
+
+
+def loadM
