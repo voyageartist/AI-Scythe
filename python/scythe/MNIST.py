@@ -23,4 +23,9 @@ def loadMNISTTrainingSet(location = "."):
     return images, labels
 
 
-def loadM
+def loadMNISTTestSet(location = "."):
+
+    y_filepath = os.path.join(location, "t10k-labels-idx1-ubyte")
+    with open(y_filepath, "rb") as y_file:
+        _, _ = struct.unpack(">II", y_file.read(8))
+        labels = n
