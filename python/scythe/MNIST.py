@@ -33,4 +33,8 @@ def loadMNISTTestSet(location = "."):
     X_filepath = os.path.join(location, "t10k-images-idx3-ubyte")
     with open(X_filepath, "rb") as X_file:
         _, _, instances, features = struct.unpack(">IIII", X_file.read(16))
-        images = np.fromfi
+        images = np.fromfile(
+            X_file, dtype = np.uint8).reshape(
+                len(labels), instances, features)
+
+    return images, labels
