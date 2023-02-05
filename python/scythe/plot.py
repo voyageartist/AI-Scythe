@@ -1,3 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
+import matplotlib.pyplot as plt
+
+
+def plot_feature_importances(predictor, alpha = 2.0):
+    feature_importances = predictor.getFeatureImportances()
+    std_dev = np.std(feature_importances)
+    bar_list = plt.bar(np.arange(len(feature_importances)), featur
