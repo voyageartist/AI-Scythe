@@ -44,4 +44,13 @@ cdef inline cnp.int32_t fnv_32bits(unsigned char* element, Py_ssize_t nbytes):
         h ^= s[i]
     return h
 
-cdef inline cnp.int64_t fnv_64bits(unsigned char
+cdef inline cnp.int64_t fnv_64bits(unsigned char* element, Py_ssize_t nbytes):
+    """
+    Fowler/Noll/Vo hash algorithm that produces 64 bits keys
+
+    Parameters
+    ----------
+    element: unsigned char*
+        Pointer to the string to be hashed
+    nbytes: Py_ssize_t
+ 
