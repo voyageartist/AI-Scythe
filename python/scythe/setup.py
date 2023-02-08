@@ -83,3 +83,26 @@ elif COMPILER == "msvc":
         "/GA",
         "/Wall"
     ]
+extra_link_args = []
+
+
+libraries = ["m"] if os.name == "posix" else list()
+include_dirs = [np.get_include()]
+
+config = Configuration(source_folder, "", "")
+for sub_package in sub_packages:
+    config.add_subpackage(sub_package)
+for sources, extension_name in source_files:
+    sources = [os.path.join(source_folder, source) for source in sources]
+    print(extension_name, sources)
+    config.add_extension(
+        extension_name, 
+        language = LANGUAGE,
+        sources = sources,
+        include_dirs = include_dirs + [os.curdir],
+        libraries = libraries,
+        extra_compile_args = extra_compile_args,
+        extra_link_args = extra_link_args
+    )
+
+np_setup(**config.todict())
