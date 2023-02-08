@@ -28,4 +28,14 @@ cdef inline cnp.int32_t fnv_32bits(unsigned char* element, Py_ssize_t nbytes):
     element: unsigned char*
         Pointer to the string to be hashed
     nbytes: Py_ssize_t
-  
+        Number of bytes contained in the string
+    
+    Return
+    ------
+    h: cnp.int32_t
+        Output key / hashed value
+    """
+    cdef unsigned char* s = <unsigned char*>element
+    cdef cnp.int32_t h = 0
+    cdef Py_ssize_t i
+    for i in
