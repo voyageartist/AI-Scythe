@@ -13,4 +13,9 @@ def plot_feature_importances(predictor, alpha = 2.0):
     		bar_item.set_color("orangered")
     	else:
     		bar_item.set_color("orange")
-    plt.titl
+    plt.title("Feature importances")
+    plt.xlabel("Feature id")
+    plt.ylabel("Weighted information gain")
+
+def show():
+	plt.show()
