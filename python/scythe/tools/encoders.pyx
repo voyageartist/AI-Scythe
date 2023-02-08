@@ -19,4 +19,13 @@ cdef cnp.int32_t FNV_32_PRIME = 16777619
 cdef cnp.int64_t FNV_64_PRIME = 1099511628211
 
 
-cdef inline cnp.int32
+cdef inline cnp.int32_t fnv_32bits(unsigned char* element, Py_ssize_t nbytes):
+    """
+    Fowler/Noll/Vo hash algorithm that produces 32 bits keys
+
+    Parameters
+    ----------
+    element: unsigned char*
+        Pointer to the string to be hashed
+    nbytes: Py_ssize_t
+  
