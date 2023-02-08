@@ -38,4 +38,10 @@ cdef inline cnp.int32_t fnv_32bits(unsigned char* element, Py_ssize_t nbytes):
     cdef unsigned char* s = <unsigned char*>element
     cdef cnp.int32_t h = 0
     cdef Py_ssize_t i
-    for i in
+    for i in range(nbytes):
+        h += (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24)
+        # or use this in place of previous line: h *= FNV_32_PRIME
+        h ^= s[i]
+    return h
+
+cdef inline cnp.int64_t fnv_64bits(unsigned char
