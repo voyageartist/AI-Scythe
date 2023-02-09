@@ -80,4 +80,12 @@ cdef class HashEncoder:
         or 64 bits keys
 
         Parameters
-        ----
+        ----------
+        dtype: np.dtype
+            Data type of the output arrays (either np.int32 or np.int64)
+        seed: int
+            Initial value of the key passed to the hash functions
+
+        References
+        ----------
+        1) 
