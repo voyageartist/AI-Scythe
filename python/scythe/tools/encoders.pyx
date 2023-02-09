@@ -71,3 +71,13 @@ cdef inline cnp.int64_t fnv_64bits(unsigned char* element, Py_ssize_t nbytes):
 
 
 cdef class HashEncoder:
+    cdef cnp.int64_t seed
+    cdef bint use_32bits_hashing
+
+    def __init__(self, dtype = np.int32, seed = 0):
+        """
+        Fowler/Noll/Vo hash algorithm, that produces either 32 bits keys
+        or 64 bits keys
+
+        Parameters
+        ----
