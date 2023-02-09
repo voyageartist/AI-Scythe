@@ -53,4 +53,13 @@ cdef inline cnp.int64_t fnv_64bits(unsigned char* element, Py_ssize_t nbytes):
     element: unsigned char*
         Pointer to the string to be hashed
     nbytes: Py_ssize_t
- 
+        Number of bytes contained in the string
+    
+    Return
+    ------
+    h: cnp.int64_t
+        Output key / hashed value
+    """
+    cdef unsigned char* s = <unsigned char*>element
+    cdef cnp.int64_t h = 0
+    cdef
