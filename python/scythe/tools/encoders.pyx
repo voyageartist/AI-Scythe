@@ -62,4 +62,12 @@ cdef inline cnp.int64_t fnv_64bits(unsigned char* element, Py_ssize_t nbytes):
     """
     cdef unsigned char* s = <unsigned char*>element
     cdef cnp.int64_t h = 0
-    cdef
+    cdef Py_ssize_t i
+    for i in range(nbytes):
+        h += (h << 1) + (h << 4) + (h << 5) + (h << 7) + (h << 8) + (h << 40)
+        # or use this in place of previous line: h *= FNV_64_PRIME
+        h ^= s[i]
+    return h
+
+
+cdef class HashEncoder:
