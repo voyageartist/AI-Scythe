@@ -94,3 +94,12 @@ cdef class HashEncoder:
         assert(dtype in [np.int32, np.int64])
         self.use_32bits_hashing = (dtype == np.int32)
         self.seed = int(round(seed))
+
+    cdef cnp.ndarray encode_32bits(self, object[:] data_buf):
+        """
+        Vectorized Fowler/Noll/Vo hash algorithm, applied on a buffer
+
+        Parameters
+        ----------
+        data_buf: object[:]
+            Buffer containing the referen
