@@ -102,4 +102,12 @@ cdef class HashEncoder:
         Parameters
         ----------
         data_buf: object[:]
-            Buffer containing the referen
+            Buffer containing the references to the str objects
+            Each str will be hashed to an integer
+        
+        Return
+        ------
+        np.ndarray[dtype = np.int32]
+            Array of same size as the input buffer
+            Contains all the hashed values
+       
