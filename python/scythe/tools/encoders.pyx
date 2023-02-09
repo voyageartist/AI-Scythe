@@ -88,4 +88,9 @@ cdef class HashEncoder:
 
         References
         ----------
-        1) 
+        1) http://www.isthe.com/chongo/src/fnv/hash_32.c
+        2) http://www.isthe.com/chongo/src/fnv/hash_64.c
+        """
+        assert(dtype in [np.int32, np.int64])
+        self.use_32bits_hashing = (dtype == np.int32)
+        self.seed = int(round(seed))
