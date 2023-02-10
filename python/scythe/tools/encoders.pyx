@@ -110,4 +110,10 @@ cdef class HashEncoder:
         np.ndarray[dtype = np.int32]
             Array of same size as the input buffer
             Contains all the hashed values
-       
+        """
+        cdef cnp.int32_t[:] encoded = np.empty(data_buf.shape[0], dtype = np.int32)
+        cdef Py_UNICODE* element
+        cdef Py_ssize_t i
+        for i in range(data_buf.shape[0]):
+            encoded[i] = fnv_32bits(
+             
