@@ -116,4 +116,10 @@ cdef class HashEncoder:
         cdef Py_ssize_t i
         for i in range(data_buf.shape[0]):
             encoded[i] = fnv_32bits(
-             
+                <unsigned char*>PyUnicode_AsUnicode(data_buf[i]),
+                PyUnicode_GET_DATA_SIZE(data_buf[i]))
+        return np.asarray(encoded)
+
+    cdef cnp.ndarray encode_64bits(self, object[:] data_buf):
+        """
+        Vectorized Fowler/No
