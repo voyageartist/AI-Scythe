@@ -130,4 +130,11 @@ cdef class HashEncoder:
             Buffer containing the references to the str objects
             Each str will be hashed to an integer
         
-        
+        Return
+        ------
+        np.ndarray[dtype = np.int64]
+            Array of same size as the input buffer
+            Contains all the hashed values
+        """
+        cdef cnp.int64_t[:] encoded = np.empty(data_buf.shape[0], dtype = np.int64)
+     
