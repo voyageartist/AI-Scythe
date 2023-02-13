@@ -122,4 +122,12 @@ cdef class HashEncoder:
 
     cdef cnp.ndarray encode_64bits(self, object[:] data_buf):
         """
-        Vectorized Fowler/No
+        Vectorized Fowler/Noll/Vo hash algorithm, applied on a buffer
+
+        Parameters
+        ----------
+        data_buf: object[:]
+            Buffer containing the references to the str objects
+            Each str will be hashed to an integer
+        
+        
