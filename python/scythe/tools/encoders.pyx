@@ -142,4 +142,11 @@ cdef class HashEncoder:
         for i in range(data_buf.shape[0]):
             encoded[i] = fnv_64bits(
                 <unsigned char*>PyUnicode_AsUnicode(data_buf[i]),
-                PyUnicode_GET_DATA_SIZE
+                PyUnicode_GET_DATA_SIZE(data_buf[i]))
+        return np.asarray(encoded)
+
+    def encode(self, data):
+        """
+        Vectorized Fowler/Noll/Vo hash algorithm, applied on a Numpy array
+        """
+        cdef object[:] data_buf = np.asarray(data, dtype
