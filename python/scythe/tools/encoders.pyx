@@ -149,4 +149,8 @@ cdef class HashEncoder:
         """
         Vectorized Fowler/Noll/Vo hash algorithm, applied on a Numpy array
         """
-        cdef object[:] data_buf = np.asarray(data, dtype
+        cdef object[:] data_buf = np.asarray(data, dtype = np.object)
+        if self.use_32bits_hashing:
+            return self.encode_32bits(data_buf)
+        else:
+            return self.encode_64bits(data_buf)
