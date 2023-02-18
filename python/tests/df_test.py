@@ -19,4 +19,10 @@ def minimal_test():
     fconfig.max_n_trees    = 2
     fconfig.max_n_features = 20
     fconfig.max_depth      = 20
-    lconfig = LayerConfiguration(fconfig, n_forests
+    lconfig = LayerConfiguration(fconfig, n_forests_per_layer, COMPLETE_RANDOM_FOREST)
+
+    print("Create gcForest")
+    graph = DeepForest(task = "classification", n_classes = 2)
+    scanner = MultiGrainedScanner2D(lconfig, (kc, kr))
+    graph.add(scanner)
+    cas
