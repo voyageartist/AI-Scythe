@@ -13,4 +13,10 @@ def minimal_test():
     n_forests_per_layer = 2
     kc, kr = 2, 2
 
-    fconfig = Fores
+    fconfig = ForestConfiguration()
+    # fconfig.bag_size       = 60000
+    fconfig.n_classes      = 2
+    fconfig.max_n_trees    = 2
+    fconfig.max_n_features = 20
+    fconfig.max_depth      = 20
+    lconfig = LayerConfiguration(fconfig, n_forests
