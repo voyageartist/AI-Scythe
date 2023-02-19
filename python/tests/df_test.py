@@ -44,4 +44,11 @@ def minimal_test():
     print("Classify with gcForest")
     probas = graph.classify(X_test)
     print(probas)
-    predictions = 
+    predictions = probas.argmax(axis = 1)
+    ga = np.sum(predictions == labels)
+    print(predictions)
+    print(labels)
+    print("Correct predictions : %i / %i" % (ga, len(labels)))
+
+    f = scanner.getForests()
+    feature_importances = f[0].getFeat
