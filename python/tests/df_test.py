@@ -25,4 +25,13 @@ def minimal_test():
     graph = DeepForest(task = "classification", n_classes = 2)
     scanner = MultiGrainedScanner2D(lconfig, (kc, kr))
     graph.add(scanner)
-    cas
+    cascade = CascadeLayer(lconfig)
+    graph.add(cascade)
+
+    cascade2 = CascadeLayer(lconfig)
+    graph.add(cascade2)
+
+
+    X_train = np.array(
+        [[[25, 20, 15], [5, 0, 0], [0, 1, 0]],
+        [[0, 4, 2], [5, 0, 15], [20, 42, 15]]], dtype = np
