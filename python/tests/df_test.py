@@ -34,4 +34,14 @@ def minimal_test():
 
     X_train = np.array(
         [[[25, 20, 15], [5, 0, 0], [0, 1, 0]],
-        [[0, 4, 2], [5, 0, 15], [20, 42, 15]]], dtype = np
+        [[0, 4, 2], [5, 0, 15], [20, 42, 15]]], dtype = np.uint8)
+    y_train = np.array([0, 1])
+    X_test, labels = X_train, y_train
+
+    print("Fit gcForest")
+    graph.fit(X_train, y_train)
+
+    print("Classify with gcForest")
+    probas = graph.classify(X_test)
+    print(probas)
+    predictions = 
