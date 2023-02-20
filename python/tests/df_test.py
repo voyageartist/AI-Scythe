@@ -51,4 +51,13 @@ def minimal_test():
     print("Correct predictions : %i / %i" % (ga, len(labels)))
 
     f = scanner.getForests()
-    feature_importances = f[0].getFeat
+    feature_importances = f[0].getFeatureImportances()
+    feature_importances = feature_importances.reshape(kc, kr)
+
+    plt.imshow(feature_importances)
+    plt.title("Feature importances")
+    plt.colorbar()
+    plt.show()
+
+if __name__ == "__main__":
+    minimal_t
