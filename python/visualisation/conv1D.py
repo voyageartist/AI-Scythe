@@ -22,4 +22,16 @@ class Iterator:
         if (self.i == self.sc):
             self.q += self.M
             self.i = 0
-            if (sel
+            if (self.q == self.sr * self.M):
+                self.q = 0
+                self.x += self.M * self.P
+
+    def _iterator_deref(self):
+        return self.x + self.i
+
+
+class Grid:
+    def __init__(self):
+        self.master = tk.Tk()
+
+        self.
