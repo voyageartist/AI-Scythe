@@ -60,4 +60,4 @@ def minimal_test():
     plt.show()
 
 if __name__ == "__main__":
-    minimal_t
+    minimal_test()
