@@ -1,3 +1,4 @@
+
 import random
 
 try:
@@ -7,15 +8,19 @@ except ImportError:
 
 
 class Iterator:
-    def __init__(self, N, M, kc):
+    def __init__(self, N, M, P, kc, kr):
         self.N = N
         self.M = M
+        self.P = P
         self.kc = kc
-        self.sc = self.M - self.kc + 1
+        self.kr = kr
+        self.sc = self.P - self.kc + 1
+        self.sr = self.M - self.kr + 1
 
     def _iterator_begin(self, j):
         self.i = 0
-        self.x = j
+        self.q = 0
+        self.x = self.P * (j % self.kc) + (j // self.kr)
 
     def _iterator_inc(self):
         self.i += 1
@@ -27,7 +32,7 @@ class Iterator:
                 self.x += self.M * self.P
 
     def _iterator_deref(self):
-        return self.x + self.i
+        return self.x + self.i + self.q
 
 
 class Grid:
@@ -35,17 +40,17 @@ class Grid:
         self.master = tk.Tk()
 
         self.squares = list()
-        pw, k = 20, 0
+        pw = 20
         self.cv = tk.Canvas(self.master, width = 850, height = 400)
-        for i in range(10):
-            for j in range(20):
-                self.squares.append(
-                    self.cv.create_rectangle(
-                        j*pw, i*pw + k, (j+1)*pw, (i+1)*pw + k))
-            k += 10
+        for k in range(2):
+            for i in range(20):
+                for j in range(20):
+                    self.squares.append(
+                        self.cv.create_rectangle(
+                            k*450+j*pw, i*pw, k*450+(j+1)*pw, (i+1)*pw))
 
-        self.iterator = Iterator(10, 20, 10)
-        self.iterator._iterator_begin(47)
+        self.iterator = Iterator(2, 20, 20, 10, 10)
+        self.iterator._iterator_begin(65)
         self.last_id = None
 
         self.cv.bind("<i>", self.incrementStep)
