@@ -55,4 +55,10 @@ class Grid:
 
     def incrementStep(self, event = None):
         i = self.iterator._iterator_deref()
-        if self.last_id is not
+        if self.last_id is not None:
+            self.cv.itemconfig(self.squares[self.last_id], fill = "blue")
+        try:
+            self.cv.itemconfig(self.squares[i], fill = "yellow")
+        except IndexError:
+            print("Out of bounds : %i" % i)
+            retu
