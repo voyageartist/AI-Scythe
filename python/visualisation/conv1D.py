@@ -34,4 +34,10 @@ class Grid:
     def __init__(self):
         self.master = tk.Tk()
 
-        self.
+        self.squares = list()
+        pw, k = 20, 0
+        self.cv = tk.Canvas(self.master, width = 850, height = 400)
+        for i in range(10):
+            for j in range(20):
+                self.squares.append(
+                    self.
