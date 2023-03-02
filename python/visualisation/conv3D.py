@@ -22,4 +22,12 @@ class Iterator:
     def _iterator_begin(self, j):
         self.i = 0
         self.q = 0
-        self.x = self.P * (j
+        self.x = self.P * (j % self.kc) + (j / self.kr)
+
+    def _iterator_inc(self):
+        self.i += 1
+        if (self.i == self.sc):
+            self.q += self.M
+            self.i = 0
+            if (self.q == self.sr * self.M):
+                self.q = 0
