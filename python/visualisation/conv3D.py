@@ -49,4 +49,9 @@ class Grid:
                 for i in range(20):
                     for j in range(20):
                         self.squares.append(
-                            self.cv.create_r
+                            self.cv.create_rectangle(
+                                k*450+j*pw+o*(pw/3), i*pw, k*450+j*pw+(o+1)*(pw/3), (i+1)*pw))
+
+        self.iterator = Iterator(2, 20, 20, 3, 10, 10, 3)
+        self.iterator._iterator_begin(65)
+        self.last_id = Non
