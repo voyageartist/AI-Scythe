@@ -31,3 +31,16 @@ class Iterator:
             self.i = 0
             if (self.q == self.sr * self.M):
                 self.q = 0
+                self.x += self.M * self.P
+
+    def _iterator_deref(self):
+        return self.x + self.i + self.q
+
+
+class Grid:
+    def __init__(self):
+        self.master = tk.Tk()
+
+        self.squares = list()
+        pw = 20
+        self.cv = tk.Canvas(self.master, wid
