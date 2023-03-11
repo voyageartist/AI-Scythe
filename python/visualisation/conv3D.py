@@ -43,4 +43,10 @@ class Grid:
 
         self.squares = list()
         pw = 20
-        self.cv = tk.Canvas(self.master, wid
+        self.cv = tk.Canvas(self.master, width = 850, height = 400)
+        for k in range(2):
+            for o in range(3):
+                for i in range(20):
+                    for j in range(20):
+                        self.squares.append(
+                            self.cv.create_r
