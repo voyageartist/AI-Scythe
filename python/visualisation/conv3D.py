@@ -54,4 +54,13 @@ class Grid:
 
         self.iterator = Iterator(2, 20, 20, 3, 10, 10, 3)
         self.iterator._iterator_begin(65)
-        self.last_id = Non
+        self.last_id = None
+
+        self.cv.bind("<i>", self.incrementStep)
+        self.cv.pack()
+        self.cv.focus_set()
+        self.master.mainloop()
+
+    def incrementStep(self, event = None):
+        i = self.iterator._iterator_deref()
+        if self.last_id is no
