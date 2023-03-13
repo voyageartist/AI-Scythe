@@ -63,4 +63,9 @@ class Grid:
 
     def incrementStep(self, event = None):
         i = self.iterator._iterator_deref()
-        if self.last_id is no
+        if self.last_id is not None:
+            color = ["red", "green", "blue"][self.last_id % 3]
+            self.cv.itemconfig(self.squares[self.last_id], fill = color)
+        try:
+            self.cv.itemconfig(self.squares[i], fill = "black")
+   
