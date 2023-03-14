@@ -68,4 +68,12 @@ class Grid:
             self.cv.itemconfig(self.squares[self.last_id], fill = color)
         try:
             self.cv.itemconfig(self.squares[i], fill = "black")
-   
+        except IndexError:
+            print("Out of bounds : %i" % i)
+            return
+
+        self.last_id = i
+        self.iterator._iterator_inc()
+
+if __name__ == "__main__":
+    grid = Grid()
