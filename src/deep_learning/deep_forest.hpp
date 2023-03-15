@@ -36,4 +36,11 @@ public:
     void fit(MDDataset dataset, Labels* labels);
     float* classify(MDDataset dataset);
     size_t add(layer_p layer);
-    void connect(layer_p parent, layer_p chil
+    void connect(layer_p parent, layer_p child);
+    void printGraph();
+    std::vector<layer_p> iterateOverLayers();
+    size_t allocateCascadeBuffer(MDDataset dataset);
+    void transfer(layer_p, vdataset_p, std::shared_ptr<ConcatenationDataset>);
+
+    layer_p getFront() { return front; }
+  
