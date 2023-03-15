@@ -12,4 +12,6 @@ There are three main categories of datasets: scanned, concatenated and direct da
 
 ![alt text](https://raw.githubusercontent.com/AntoinePassemiers/Scythe/master/doc/imgs/ScannedDataset2D.png)
 
-## Concatenated 
+## Concatenated datasets
+
+## Direct datasets
