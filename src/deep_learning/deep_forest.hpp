@@ -21,4 +21,14 @@ namespace scythe {
 
 class DeepForest {
 private:
-    std::vector<layer
+    std::vector<layer_p> layers;
+    size_t n_layers;
+    int task;
+    layer_p front;
+    layer_p rear;
+    std::queue<std::shared_ptr<ConcatenationDataset>> cascade_buffers;
+
+public:
+    DeepForest(int task);
+    DeepForest(const DeepForest& other) = default;
+    DeepForest& 
