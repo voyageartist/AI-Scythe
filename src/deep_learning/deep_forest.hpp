@@ -31,4 +31,9 @@ private:
 public:
     DeepForest(int task);
     DeepForest(const DeepForest& other) = default;
-    DeepForest& 
+    DeepForest& operator=(const DeepForest& other) = default;
+    ~DeepForest() = default;
+    void fit(MDDataset dataset, Labels* labels);
+    float* classify(MDDataset dataset);
+    size_t add(layer_p layer);
+    void connect(layer_p parent, layer_p chil
