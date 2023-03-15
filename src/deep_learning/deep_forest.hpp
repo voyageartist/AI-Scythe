@@ -43,4 +43,9 @@ public:
     void transfer(layer_p, vdataset_p, std::shared_ptr<ConcatenationDataset>);
 
     layer_p getFront() { return front; }
-  
+    layer_p getLayerByID(size_t layer_id) { return layers.at(layer_id); }
+};
+
+} // namespace
+
+#endif // DEEP_FOREST_HPP_
