@@ -20,4 +20,8 @@ ConcatenationDataset::ConcatenationDataset(size_t n_instances, size_t n_virtual_
     n_instances(n_instances),
     n_virtual_cols(n_virtual_features),
     stride(0),
-    dtyp
+    dtype(NPY_FLOAT32_NUM) {} // TODO : dtype in case of regresion task
+
+VirtualDataset* ConcatenationDataset::deepcopy() {
+    size_t n_required_bytes = getNumRows() * getRowStride() * getItemStride();
+    void* new_data = malloc(n_require
