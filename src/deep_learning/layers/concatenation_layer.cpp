@@ -14,3 +14,10 @@ namespace scythe {
 ConcatenationDataset::ConcatenationDataset(
     proba_t* data, size_t n_instances, size_t n_virtual_cols, size_t stride, int dtype) :
     data(data), n_instances(n_instances), n_virtual_cols(n_virtual_cols), stride(stride), dtype(dtype) {}
+
+ConcatenationDataset::ConcatenationDataset(size_t n_instances, size_t n_virtual_features) :
+    data(new proba_t[n_instances * n_virtual_features]),
+    n_instances(n_instances),
+    n_virtual_cols(n_virtual_features),
+    stride(0),
+    dtyp
