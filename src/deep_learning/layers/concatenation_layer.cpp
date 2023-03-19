@@ -24,4 +24,9 @@ ConcatenationDataset::ConcatenationDataset(size_t n_instances, size_t n_virtual_
 
 VirtualDataset* ConcatenationDataset::deepcopy() {
     size_t n_required_bytes = getNumRows() * getRowStride() * getItemStride();
-    void* new_data = malloc(n_require
+    void* new_data = malloc(n_required_bytes);
+    std::memcpy(new_data, data, n_required_bytes);
+    return new ConcatenationDataset(static_cast<proba_t*>(new_data), n_instances, n_virtual_cols, stride, dtype);
+}
+
+VirtualDataset* ConcatenationDataset::createView(void* view, siz
