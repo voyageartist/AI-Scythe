@@ -35,4 +35,8 @@ VirtualDataset* ConcatenationDataset::createView(void* view, size_t n_rows) {
 
 void ConcatenationDataset::concatenate(float* new_data, size_t width) {
     // TODO: parallel computing
-    std::cout << "Concate
+    std::cout << "Concatenation : " << n_instances << ", ";
+    std::cout << n_virtual_cols << ", " << width << ", " << this->stride << std::endl;
+    size_t k = this->stride;
+    assert(this->stride + width <= n_virtual_cols);
+    for (unsigned int i = 0; i <
