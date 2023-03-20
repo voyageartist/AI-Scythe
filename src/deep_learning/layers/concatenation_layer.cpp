@@ -39,4 +39,7 @@ void ConcatenationDataset::concatenate(float* new_data, size_t width) {
     std::cout << n_virtual_cols << ", " << width << ", " << this->stride << std::endl;
     size_t k = this->stride;
     assert(this->stride + width <= n_virtual_cols);
-    for (unsigned int i = 0; i <
+    for (unsigned int i = 0; i < this->n_instances; i++) {
+        for (unsigned int j = 0; j < width; j++) {
+            this->data[i * n_virtual_cols + k + j] = static_cast<proba_t>(new_data[i * width + j]);
+            //std::cout << new_data[i * wid
