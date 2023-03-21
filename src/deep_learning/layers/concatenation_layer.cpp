@@ -51,4 +51,7 @@ void ConcatenationDataset::concatenate(float* new_data, size_t width) {
 
 void ConcatenationDataset::allocateFromSampleMask(
     size_t* const sample_mask, size_t node_id, size_t feature_id, size_t n_items, size_t n_instances) {
-    /
+    /**
+        Allocate memory for storing temporary values of a single feature,
+        for the data samples belonging to the current node.
+        This method is called right before the inner loop of the
