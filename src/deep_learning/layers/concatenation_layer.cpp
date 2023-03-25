@@ -94,4 +94,16 @@ data_t ConcatenationDataset::operator()(const size_t i, const size_t j) {
     return static_cast<data_t>(data[i * n_virtual_cols + j]);
 }
 
-void ConcatenationDatas
+void ConcatenationDataset::_iterator_begin(const size_t j) {
+    inline_iterator_begin(j);
+}
+
+void ConcatenationDataset::_iterator_inc() {
+    inline_iterator_inc();
+}
+
+data_t ConcatenationDataset::_iterator_deref() {
+    return inline_iterator_deref();
+}
+
+CascadeLayer::Casca
