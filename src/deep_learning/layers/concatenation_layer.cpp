@@ -86,4 +86,12 @@ void ConcatenationDataset::allocateFromSampleMask(
         }
         inline_iterator_inc();
     }
-    contiguous_d
+    contiguous_data = static_cast<void*>(t_contiguous_data);
+    assert(k == n_items);
+}
+
+data_t ConcatenationDataset::operator()(const size_t i, const size_t j) {
+    return static_cast<data_t>(data[i * n_virtual_cols + j]);
+}
+
+void ConcatenationDatas
