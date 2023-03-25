@@ -65,4 +65,10 @@ void ConcatenationDataset::allocateFromSampleMask(
         @param feature_id
             Id of the attribute whose values are going to be stored
         @param n_items
-            Number of data samples belonging to the
+            Number of data samples belonging to the current node
+        @param n_instances
+            Number of data samples in the whole dataset
+    */
+    fast_data_t* t_contiguous_data = static_cast<fast_data_t*>(contiguous_data);
+    if (n_items != this->n_contiguous_items) { // TODO
+        if (contigu
