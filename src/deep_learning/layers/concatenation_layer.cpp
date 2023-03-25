@@ -54,4 +54,10 @@ void ConcatenationDataset::allocateFromSampleMask(
     /**
         Allocate memory for storing temporary values of a single feature,
         for the data samples belonging to the current node.
-        This method is called right before the inner loop of the
+        This method is called right before the inner loop of the CART algorithm,
+        and its purpose is to avoid calling virtual functions inside the vectorized
+        inner loop.
+
+        @param sample_mask
+            Pointer indicating for each data sample the id of the node it belongs to
+        @
