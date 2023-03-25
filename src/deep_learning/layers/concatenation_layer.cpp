@@ -106,4 +106,14 @@ data_t ConcatenationDataset::_iterator_deref() {
     return inline_iterator_deref();
 }
 
-CascadeLayer::Casca
+CascadeLayer::CascadeLayer(LayerConfig lconfig) : 
+    Layer(lconfig) {
+}
+
+vdataset_p CascadeLayer::virtualize(MDDataset dataset) {
+    // TODO : throw exception
+    return nullptr;
+}
+
+vtargets_p CascadeLayer::virtualizeTargets(Labels* targets) {
+    DirectTargets
