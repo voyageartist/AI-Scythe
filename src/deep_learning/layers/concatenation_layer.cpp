@@ -116,4 +116,10 @@ vdataset_p CascadeLayer::virtualize(MDDataset dataset) {
 }
 
 vtargets_p CascadeLayer::virtualizeTargets(Labels* targets) {
-    DirectTargets
+    DirectTargets* direct_targets = new DirectTargets(
+        targets->data, targets->n_rows);
+    return std::shared_ptr<VirtualTargets>(direct_targets);
+}
+
+size_t CascadeLayer::getNumVirtualFeatures() {
+    if (lconfig.fconfig.task == CLASSIFI
