@@ -71,4 +71,13 @@ void ConcatenationDataset::allocateFromSampleMask(
     */
     fast_data_t* t_contiguous_data = static_cast<fast_data_t*>(contiguous_data);
     if (n_items != this->n_contiguous_items) { // TODO
-        if (contigu
+        if (contiguous_data != nullptr) {
+            delete[] contiguous_data;
+        }
+        t_contiguous_data = new fast_data_t[n_items];
+        this->n_contiguous_items = n_items;
+    }
+
+    uint k = 0;
+    inline_iterator_begin(feature_id);
+    for (ui
