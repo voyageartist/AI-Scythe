@@ -60,4 +60,9 @@ void ConcatenationDataset::allocateFromSampleMask(
 
         @param sample_mask
             Pointer indicating for each data sample the id of the node it belongs to
-        @
+        @param node_id
+            Id of the current node
+        @param feature_id
+            Id of the attribute whose values are going to be stored
+        @param n_items
+            Number of data samples belonging to the
