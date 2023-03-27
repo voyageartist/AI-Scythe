@@ -122,4 +122,12 @@ vtargets_p CascadeLayer::virtualizeTargets(Labels* targets) {
 }
 
 size_t CascadeLayer::getNumVirtualFeatures() {
-    if (lconfig.fconfig.task == CLASSIFI
+    if (lconfig.fconfig.task == CLASSIFICATION_TASK) {
+        return lconfig.n_forests * lconfig.fconfig.n_classes;
+    }
+    else {
+        return lconfig.n_forests;
+    }
+}
+
+} // namespace
