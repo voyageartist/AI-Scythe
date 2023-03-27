@@ -26,4 +26,7 @@ private:
     size_t iterator_cursor;
 public:
     ConcatenationDataset(proba_t*, size_t, size_t, size_t, int);
-    ConcatenationDat
+    ConcatenationDataset(size_t n_instances, size_t n_virtual_features);
+    ConcatenationDataset(const ConcatenationDataset& other) = default;
+    ConcatenationDataset& operator=(const ConcatenationDataset& other) = default;
+    ~ConcatenationDataset() override = defau
