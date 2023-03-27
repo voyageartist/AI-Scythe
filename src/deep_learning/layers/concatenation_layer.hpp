@@ -16,4 +16,14 @@ namespace scythe {
 
 class ConcatenationDataset : public VirtualDataset {    
 private:
-  
+    proba_t* data;
+    size_t n_instances;
+    size_t n_virtual_cols;
+    size_t stride;
+    int dtype;
+
+    // Iterator cursor
+    size_t iterator_cursor;
+public:
+    ConcatenationDataset(proba_t*, size_t, size_t, size_t, int);
+    ConcatenationDat
