@@ -29,4 +29,9 @@ public:
     ConcatenationDataset(size_t n_instances, size_t n_virtual_features);
     ConcatenationDataset(const ConcatenationDataset& other) = default;
     ConcatenationDataset& operator=(const ConcatenationDataset& other) = default;
-    ~ConcatenationDataset() override = defau
+    ~ConcatenationDataset() override = default;
+    virtual VirtualDataset* deepcopy();
+    virtual VirtualDataset* createView(void* view, size_t n_rows);
+    void concatenate(float* new_data, size_t width);
+    void reset() { this->stride = 0; }
+    virtual data_t operator()(c
