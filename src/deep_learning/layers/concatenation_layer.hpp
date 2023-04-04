@@ -34,4 +34,11 @@ public:
     virtual VirtualDataset* createView(void* view, size_t n_rows);
     void concatenate(float* new_data, size_t width);
     void reset() { this->stride = 0; }
-    virtual data_t operator()(c
+    virtual data_t operator()(const size_t i, const size_t j);
+    virtual void allocateFromSampleMask(size_t* const mask, size_t, size_t, size_t, size_t);
+
+    // Virtual iterator
+    virtual void _iterator_begin(const size_t j);
+    virtual void _iterator_inc();
+    virtual data_t _iterator_deref();
+    inlin
