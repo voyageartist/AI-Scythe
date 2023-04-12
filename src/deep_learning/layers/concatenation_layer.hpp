@@ -47,4 +47,8 @@ public:
 
     // Getters
     virtual size_t getNumInstances() { return n_instances; }
-    virtual size_t getNumFeatures() { return s
+    virtual size_t getNumFeatures() { return stride; }
+    virtual size_t getNumVirtualInstancesPerInstance() { return 1; }
+    virtual size_t getNumRows() { return n_instances; }
+    virtual size_t getRowStride() { return n_virtual_cols; }
+    virtual int    getDataType() { retur
