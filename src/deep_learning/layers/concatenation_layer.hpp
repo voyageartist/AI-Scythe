@@ -51,4 +51,12 @@ public:
     virtual size_t getNumVirtualInstancesPerInstance() { return 1; }
     virtual size_t getNumRows() { return n_instances; }
     virtual size_t getRowStride() { return n_virtual_cols; }
-    virtual int    getDataType() { retur
+    virtual int    getDataType() { return dtype; }
+    virtual void*  getData() { return static_cast<void*>(data); }
+};
+
+inline void ConcatenationDataset::inline_iterator_begin(const size_t j) {
+    iterator_cursor = j;
+}
+
+inline void ConcatenationDataset::inline_iterator_
