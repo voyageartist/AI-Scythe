@@ -71,4 +71,9 @@ inline data_t ConcatenationDataset::inline_iterator_deref() {
 class CascadeLayer : public Layer {
 public:
     CascadeLayer(LayerConfig lconfig);
-    ~CascadeLayer() 
+    ~CascadeLayer() {}
+    virtual vdataset_p virtualize(MDDataset dataset);
+    virtual vtargets_p virtualizeTargets(Labels* targets);
+    virtual size_t getNumVirtualFeatures();
+    virtual bool isConcatenable() { return true; }
+    virtual std::string getType() 
