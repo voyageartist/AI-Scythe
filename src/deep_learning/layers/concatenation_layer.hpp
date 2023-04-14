@@ -59,4 +59,16 @@ inline void ConcatenationDataset::inline_iterator_begin(const size_t j) {
     iterator_cursor = j;
 }
 
-inline void ConcatenationDataset::inline_iterator_
+inline void ConcatenationDataset::inline_iterator_inc() {
+    iterator_cursor += n_virtual_cols;
+}
+
+inline data_t ConcatenationDataset::inline_iterator_deref() {
+    return data[iterator_cursor];
+}
+
+
+class CascadeLayer : public Layer {
+public:
+    CascadeLayer(LayerConfig lconfig);
+    ~CascadeLayer() 
