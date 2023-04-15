@@ -76,4 +76,9 @@ public:
     virtual vtargets_p virtualizeTargets(Labels* targets);
     virtual size_t getNumVirtualFeatures();
     virtual bool isConcatenable() { return true; }
-    virtual std::string getType() 
+    virtual std::string getType() { return std::string("CascadeLayer"); }
+};
+
+} // namespace
+
+#endif // CONCATENATION_LAYER_HPP_
