@@ -19,4 +19,9 @@ private:
     size_t N;  // Number of instances
     size_t M;  // Instance height
     size_t P;  // Instance width
-    size_t 
+    size_t kc; // Kernel width
+    size_t kr; // Kernel height
+    size_t sc; // Number of kernel positions per column
+    size_t sr; // Number of kernel positions per row
+
+    size_t Nprime; // Number of instances after scan
