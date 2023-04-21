@@ -24,4 +24,15 @@ private:
     size_t sc; // Number of kernel positions per column
     size_t sr; // Number of kernel positions per row
 
-    size_t Nprime; // Number of instances after scan
+    size_t Nprime; // Number of instances after scanning
+    size_t Mprime; // Number of features after scanning
+
+    void* data; // Pointer to the raw data
+    int dtype;    // Raw data type
+
+    // Iterator cursors
+    size_t _it_x;
+    size_t _it_i;
+    size_t _it_q;
+public:
+    ScannedDataset2D(void* data, size_t N, si
