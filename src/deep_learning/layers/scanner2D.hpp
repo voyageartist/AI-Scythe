@@ -35,4 +35,8 @@ private:
     size_t _it_i;
     size_t _it_q;
 public:
-    ScannedDataset2D(void* data, size_t N, si
+    ScannedDataset2D(void* data, size_t N, size_t M, 
+        size_t P, size_t kc, size_t kr, int dtype);
+    ScannedDataset2D(const ScannedDataset2D& other) = default;
+    ScannedDataset2D& operator=(const ScannedDataset2D& other) = default;
+    ~ScannedDataset2D() o
