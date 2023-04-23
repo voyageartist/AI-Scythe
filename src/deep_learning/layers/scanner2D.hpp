@@ -39,4 +39,10 @@ public:
         size_t P, size_t kc, size_t kr, int dtype);
     ScannedDataset2D(const ScannedDataset2D& other) = default;
     ScannedDataset2D& operator=(const ScannedDataset2D& other) = default;
-    ~ScannedDataset2D() o
+    ~ScannedDataset2D() override = default;
+    virtual VirtualDataset* deepcopy();
+    virtual VirtualDataset* createView(void* view, size_t n_rows);
+    virtual data_t operator()(size_t i, size_t j);
+
+    // Virtual iterator
+    virtual void _iterat
