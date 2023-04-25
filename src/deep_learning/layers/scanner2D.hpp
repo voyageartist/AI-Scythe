@@ -45,4 +45,11 @@ public:
     virtual data_t operator()(size_t i, size_t j);
 
     // Virtual iterator
-    virtual void _iterat
+    virtual void _iterator_begin(const size_t j);
+    virtual void _iterator_inc();
+    virtual data_t _iterator_deref();
+    inline void inline_iterator_begin(const size_t j);
+    inline void inline_iterator_inc();
+    inline data_t inline_iterator_deref();
+
+    template<type
