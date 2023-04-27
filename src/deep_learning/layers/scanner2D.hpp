@@ -52,4 +52,9 @@ public:
     inline void inline_iterator_inc();
     inline data_t inline_iterator_deref();
 
-    template<type
+    template<typename T, typename fast_T>
+    void generic_allocateFromSampleMask(size_t* const mask, size_t, size_t, size_t, size_t);
+    virtual void allocateFromSampleMask(size_t* const mask, size_t, size_t, size_t, size_t);
+
+    // Getters
+    size_t getSc() { 
