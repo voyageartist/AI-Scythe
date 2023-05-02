@@ -57,4 +57,9 @@ public:
     virtual void allocateFromSampleMask(size_t* const mask, size_t, size_t, size_t, size_t);
 
     // Getters
-    size_t getSc() { 
+    size_t getSc() { return sc; }
+    size_t getSr() { return sr; }
+    virtual size_t getNumInstances() { return Nprime; }
+    virtual size_t getNumFeatures() { return Mprime; }
+    virtual size_t getNumVirtualInstancesPerInstance() { return sc * sr; }
+    virtual size_t ge
