@@ -84,4 +84,10 @@ public:
     ScannedTargets2D& operator=(const ScannedTargets2D& other) = default;
     ~ScannedTargets2D() override = default;
     virtual VirtualTargets* deepcopy();
-    virtual Virt
+    virtual VirtualTargets* createView(void* view, size_t n_rows);
+    virtual target_t operator[](const size_t i);
+    virtual size_t getNumInstances() { return n_rows; }
+    virtual target_t* getValues() { return data; }
+
+    // Virtual iterator
+   
