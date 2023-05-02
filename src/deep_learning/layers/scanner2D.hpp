@@ -69,4 +69,15 @@ public:
 };
 
 
-class ScannedTargets2D : public VirtualT
+class ScannedTargets2D : public VirtualTargets {
+private:
+    target_t* data;
+    size_t n_rows;
+    size_t sc;
+    size_t sr;
+    size_t s;
+    size_t _it_x;
+    size_t _it_i;
+public:
+    ScannedTargets2D(target_t* data, size_t n_instances, size_t sc, size_t sr);
+  
