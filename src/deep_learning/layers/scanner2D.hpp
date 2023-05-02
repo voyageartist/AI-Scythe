@@ -90,4 +90,12 @@ public:
     virtual target_t* getValues() { return data; }
 
     // Virtual iterator
-   
+    virtual void _iterator_begin();
+    virtual void _iterator_inc();
+    virtual data_t _iterator_deref();
+
+    virtual void allocateFromSampleMask(size_t*, size_t, size_t, size_t);
+};
+
+
+class MultiGrainedScanner2D : pub
