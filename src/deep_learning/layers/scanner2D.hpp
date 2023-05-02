@@ -113,4 +113,13 @@ public:
 };
 
 
-inline void Sca
+inline void ScannedDataset2D::inline_iterator_begin(const size_t j) {
+    _it_x = P * (j % kc) + (j / kr);
+    _it_i = 0;
+    _it_q = 0;
+}
+
+inline void ScannedDataset2D::inline_iterator_inc() {
+    _it_i++;
+    if (_it_i == sc) {
+      
