@@ -98,4 +98,11 @@ public:
 };
 
 
-class MultiGrainedScanner2D : pub
+class MultiGrainedScanner2D : public Layer {
+private:
+    size_t kc; // Kernel width
+    size_t kr; // Kernel height
+public:
+    MultiGrainedScanner2D(LayerConfig lconfig, size_t kc, size_t kr);
+    ~MultiGrainedScanner2D() {}
+    virtual vdataset_p virtualize(MDDataset dataset
