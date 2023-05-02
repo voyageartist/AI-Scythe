@@ -105,4 +105,12 @@ private:
 public:
     MultiGrainedScanner2D(LayerConfig lconfig, size_t kc, size_t kr);
     ~MultiGrainedScanner2D() {}
-    virtual vdataset_p virtualize(MDDataset dataset
+    virtual vdataset_p virtualize(MDDataset dataset);
+    virtual vtargets_p virtualizeTargets(Labels* targets);
+    virtual size_t getNumVirtualFeatures();
+    virtual bool isConcatenable() { return false; }
+    virtual std::string getType() { return std::string("MultiGrainedScanner2D"); }
+};
+
+
+inline void Sca
