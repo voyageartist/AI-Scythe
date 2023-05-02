@@ -80,4 +80,8 @@ private:
     size_t _it_i;
 public:
     ScannedTargets2D(target_t* data, size_t n_instances, size_t sc, size_t sr);
-  
+    ScannedTargets2D(const ScannedTargets2D& other) = default;
+    ScannedTargets2D& operator=(const ScannedTargets2D& other) = default;
+    ~ScannedTargets2D() override = default;
+    virtual VirtualTargets* deepcopy();
+    virtual Virt
