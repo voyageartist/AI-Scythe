@@ -122,4 +122,16 @@ inline void ScannedDataset2D::inline_iterator_begin(const size_t j) {
 inline void ScannedDataset2D::inline_iterator_inc() {
     _it_i++;
     if (_it_i == sc) {
-      
+        _it_q += M;
+        _it_i = 0;
+        if (_it_q == sr * M) {
+            _it_q = 0;
+            _it_x += (M * P);
+        }
+    }
+}
+
+inline data_t ScannedDataset2D::inline_iterator_deref() {
+    switch (getDataType()) {
+        case NPY_UINT8_NUM:
+     
