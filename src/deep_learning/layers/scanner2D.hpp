@@ -134,4 +134,11 @@ inline void ScannedDataset2D::inline_iterator_inc() {
 inline data_t ScannedDataset2D::inline_iterator_deref() {
     switch (getDataType()) {
         case NPY_UINT8_NUM:
-     
+            return static_cast<uint8_t*>(data)[_it_x + _it_i + _it_q];
+        default:
+            return static_cast<data_t*>(data)[_it_x + _it_i + _it_q];
+    }
+}
+
+template<typename T, typename fast_T>
+void ScannedDataset2D::generic_all
