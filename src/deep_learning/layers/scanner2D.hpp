@@ -141,4 +141,10 @@ inline data_t ScannedDataset2D::inline_iterator_deref() {
 }
 
 template<typename T, typename fast_T>
-void ScannedDataset2D::generic_all
+void ScannedDataset2D::generic_allocateFromSampleMask(
+    size_t* const sample_mask, size_t node_id, size_t feature_id, 
+    size_t n_items, size_t n_instances) {
+
+    T* t_data = static_cast<T*>(data);
+    fast_T* t_contiguous_data = static_cast<fast_T*>(contiguous_data);
+   
