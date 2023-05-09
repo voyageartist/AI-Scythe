@@ -147,4 +147,9 @@ void ScannedDataset2D::generic_allocateFromSampleMask(
 
     T* t_data = static_cast<T*>(data);
     fast_T* t_contiguous_data = static_cast<fast_T*>(contiguous_data);
-   
+    if (n_items != this->n_contiguous_items) { // TODO
+        if (contiguous_data != nullptr) {
+            delete[] contiguous_data;
+        }
+        t_contiguous_data = new fast_T[n_items];
+        this->n_contiguous_items = n_
