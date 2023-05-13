@@ -152,4 +152,11 @@ void ScannedDataset2D::generic_allocateFromSampleMask(
             delete[] contiguous_data;
         }
         t_contiguous_data = new fast_T[n_items];
-        this->n_contiguous_items = n_
+        this->n_contiguous_items = n_items;
+    }
+
+    uint k = 0;
+    inline_iterator_begin(feature_id);
+    for (uint i = 0; i < n_instances; i++) {
+        if (sample_mask[i] == node_id) {
+            t_contiguous_data[k++] = static_cast<fast_T>(inline_iterat
