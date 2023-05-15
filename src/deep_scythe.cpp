@@ -27,3 +27,9 @@ extern "C" {
     void c_fit_deep_forest(
         scythe::MDDataset dataset, scythe::Labels* labels, size_t forest_id) {
         scythe::DeepForest* forest = cpp_classes_interface.get(forest_id);
+        forest->fit(dataset, labels);
+    }
+
+    float* c_deep_forest_classify(scythe::MDDataset dataset, size_t forest_id) {
+        scythe::DeepForest* forest = cpp_classes_interface.get(forest_id);
+        return forest->classify(da
