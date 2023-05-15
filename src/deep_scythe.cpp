@@ -20,4 +20,10 @@ extern "C" {
     size_t c_create_deep_forest(int task) {
         scythe::DeepForest* forest = new scythe::DeepForest(task);
         size_t ptr_id = cpp_classes_interface.num_df_ptrs++;
-        cpp_classes_inter
+        cpp_classes_interface.df_ptrs.push_back(forest);
+        return ptr_id;
+    }
+
+    void c_fit_deep_forest(
+        scythe::MDDataset dataset, scythe::Labels* labels, size_t forest_id) {
+        scythe::DeepForest* forest = cpp_classes_interface.get(forest_id);
