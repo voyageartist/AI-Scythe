@@ -12,4 +12,12 @@
 CppClassesInterface cpp_classes_interface = CppClassesInterface();
 
 scythe::DeepForest* CppClassesInterface::get(size_t i) {
-   
+    return df_ptrs.at(i);
+}
+
+extern "C" {
+
+    size_t c_create_deep_forest(int task) {
+        scythe::DeepForest* forest = new scythe::DeepForest(task);
+        size_t ptr_id = cpp_classes_interface.num_df_ptrs++;
+        cpp_classes_inter
