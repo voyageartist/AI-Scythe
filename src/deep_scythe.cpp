@@ -32,4 +32,9 @@ extern "C" {
 
     float* c_deep_forest_classify(scythe::MDDataset dataset, size_t forest_id) {
         scythe::DeepForest* forest = cpp_classes_interface.get(forest_id);
-        return forest->classify(da
+        return forest->classify(dataset);
+    }
+
+    size_t c_add_cascade_layer(size_t forest_id, scythe::LayerConfig lconfig) {
+        scythe::DeepForest* forest = cpp_classes_interface.get(forest_id);
+        scythe::layer_p layer = std::shared_ptr<scythe::CascadeLay
