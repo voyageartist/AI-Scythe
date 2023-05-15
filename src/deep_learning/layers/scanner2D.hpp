@@ -159,4 +159,16 @@ void ScannedDataset2D::generic_allocateFromSampleMask(
     inline_iterator_begin(feature_id);
     for (uint i = 0; i < n_instances; i++) {
         if (sample_mask[i] == node_id) {
-            t_contiguous_data[k++] = static_cast<fast_T>(inline_iterat
+            t_contiguous_data[k++] = static_cast<fast_T>(inline_iterator_deref());
+        }
+        inline_iterator_inc();
+    }
+    contiguous_data = static_cast<void*>(t_contiguous_data);
+    assert(k == n_items);
+}
+
+
+
+} // namespace
+
+#endif // SCANNER2D_HPP_
