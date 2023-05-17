@@ -15,4 +15,8 @@
 
 namespace scythe {
 
-Density* compu
+Density* computeDensities(VirtualDataset* data, size_t n_classes, data_t nan_value, int partitioning);
+
+}
+
+#endif // CONTINUOUS_HPP
