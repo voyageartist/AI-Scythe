@@ -21,4 +21,11 @@ namespace scythe {
 class SplitManager;
 
 // Partitioning of the input's density function
-constexpr int
+constexpr int QUARTILE_PARTITIONING   = 0xB23A40;
+constexpr int DECILE_PARTITIONING     = 0xB23A41;
+constexpr int PERCENTILE_PARTITIONING = 0xB23A42;
+
+struct Density {
+    bool    is_categorical;
+    data_t  split_value;
+    data_t* v
