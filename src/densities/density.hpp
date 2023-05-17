@@ -28,4 +28,14 @@ constexpr int PERCENTILE_PARTITIONING = 0xB23A42;
 struct Density {
     bool    is_categorical;
     data_t  split_value;
-    data_t* v
+    data_t* values;
+    size_t  n_values;
+    size_t* counters_left;
+    size_t* counters_right;
+    size_t* counters_nan;
+    SplitManager* owner;
+};
+
+}
+
+#endif // DENSITY_HPP
