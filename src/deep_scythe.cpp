@@ -54,4 +54,7 @@ extern "C" {
         forest->connect(forest->getLayerByID(parent_id), forest->getLayerByID(child_id));
     }
 
-    v
+    void* c_get_forest(size_t deep_forest_id, size_t layer_id, size_t forest_id) {
+        scythe::DeepForest* deep_forest = cpp_classes_interface.get(deep_forest_id);
+        scythe::layer_p layer = deep_forest->getLayerByID(layer_id);
+        std::shared_ptr<scyth
