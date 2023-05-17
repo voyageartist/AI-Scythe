@@ -49,4 +49,9 @@ extern "C" {
         return forest->add(layer);
     }
 
-    void c_connect_nodes
+    void c_connect_nodes(size_t forest_id, size_t parent_id, size_t child_id) {
+        scythe::DeepForest* forest = cpp_classes_interface.get(forest_id);
+        forest->connect(forest->getLayerByID(parent_id), forest->getLayerByID(child_id));
+    }
+
+    v
