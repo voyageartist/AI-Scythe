@@ -14,4 +14,8 @@
 
 namespace scythe {
 
-Density* getArbitraryPixelDensities(size
+Density* getArbitraryPixelDensities(size_t n_features, size_t n_classes);
+
+}
+
+#endif // GRAYSCALE_HPP
