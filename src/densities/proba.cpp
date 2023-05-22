@@ -21,4 +21,13 @@ Density* getArbitraryProbaDensities(size_t n_features, size_t n_classes) {
     densities[0].n_values = 100;
 
     for (unsigned int i = 1; i <= 100; i++) {
-        densities[0].values[i - 
+        densities[0].values[i - 1] = i / 100.0;
+    }
+
+    for (unsigned int f = 1; f < n_features; f++) {
+        densities[f] = densities[0];
+    }
+    return densities;
+}
+
+}
