@@ -28,4 +28,8 @@ ClassificationCompleteRF::ClassificationCompleteRF
 }
 
 void ClassificationCompleteRF::fitNewTree(VirtualDataset* dataset, VirtualTargets* targets) {
-    assert(dataset->getNumInstances() == targets->
+    assert(dataset->getNumInstances() == targets->getNumInstances());
+    size_t n_rows = targets->getNumInstances();
+    size_t bag_size = config.bagging_fraction * n_rows;
+    std::vector<size_t> indexes = randomSet(bag_size, n_rows);
+    VirtualDataset* dataset_view = dataset->shuffleAndC
