@@ -22,3 +22,10 @@ ClassificationCompleteRF::ClassificationCompleteRF
     }
     /*
     this->score_metric = std::move(
+        std::shared_ptr<ClassificationError>(
+            new MultiLogLossError(config->n_classes, n_instances)));
+    */
+}
+
+void ClassificationCompleteRF::fitNewTree(VirtualDataset* dataset, VirtualTargets* targets) {
+    assert(dataset->getNumInstances() == targets->
