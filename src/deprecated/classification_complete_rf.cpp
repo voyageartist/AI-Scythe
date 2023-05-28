@@ -32,4 +32,10 @@ void ClassificationCompleteRF::fitNewTree(VirtualDataset* dataset, VirtualTarget
     size_t n_rows = targets->getNumInstances();
     size_t bag_size = config.bagging_fraction * n_rows;
     std::vector<size_t> indexes = randomSet(bag_size, n_rows);
-    VirtualDataset* dataset_view = dataset->shuffleAndC
+    VirtualDataset* dataset_view = dataset->shuffleAndCreateView(indexes);
+    VirtualTargets* targets_view = targets->shuffleAndCreateView(indexes);
+
+    std::shared_ptr<Tree> new_tree = std::shared_ptr<Tree>(CART(
+        dataset_view,
+        targets_view, 
+        &(Forest::base_tree_confi
