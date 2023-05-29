@@ -38,4 +38,13 @@ void ClassificationCompleteRF::fitNewTree(VirtualDataset* dataset, VirtualTarget
     std::shared_ptr<Tree> new_tree = std::shared_ptr<Tree>(CART(
         dataset_view,
         targets_view, 
-        &(Forest::base_tree_confi
+        &(Forest::base_tree_config),
+        this->densities.get()));
+    Forest::trees.push_back(new_tree);
+
+    delete dataset_view;
+    delete targets_view;
+}
+
+void ClassificationCompleteRF::fit(VirtualDataset* dataset, VirtualTargets* targets) {
+    // Compute densi
