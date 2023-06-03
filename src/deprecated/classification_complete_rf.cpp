@@ -53,4 +53,11 @@ void ClassificationCompleteRF::fit(VirtualDataset* dataset, VirtualTargets* targ
     #ifdef _OMP
         #pragma omp parallel for num_threads(parameters.n_jobs)
     #endif
-    for (uint n_trees = 0; n_trees < Forest::c
+    for (uint n_trees = 0; n_trees < Forest::config.n_iter; n_trees++) {
+        fitNewTree(dataset, targets);
+    }
+}
+
+float* ClassificationCompleteRF::classify(VirtualDataset* dataset) {
+    size_t n_classes = Forest::config.n_classes;
+    size_t n_instances = dataset->getNumInstan
