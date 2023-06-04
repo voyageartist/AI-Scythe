@@ -17,4 +17,8 @@ cdef extern from "../../src/deep_learning/layers/layer.hpp" namespace "scythe":
 
 cdef extern from "../../src/deep_scythe.hpp":
     size_t c_create_deep_forest(int task)
-    void c_fit_deep_forest(MDDataset dataset, Labels* labels, size_t for
+    void c_fit_deep_forest(MDDataset dataset, Labels* labels, size_t forest_id)
+    float* c_deep_forest_classify(MDDataset dataset, size_t forest_id)
+    size_t c_add_cascade_layer(size_t forest_id, LayerConfig lconfig)
+    size_t c_add_scanner_2d(size_t forest_id, LayerConfig lconfig, size_t kc, size_t kr)
+    void c
