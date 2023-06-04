@@ -101,3 +101,15 @@ class DeepForest:
     def fit(self, X, y):
         cdef cnp.ndarray cX = np.ascontiguousarray(X)
         cdef cnp.ndarray cy = np.ascontiguousarray(y, dtype = target_np)
+        cdef MDDataset dataset = to_md_dataset(cX)
+        cdef Labels labels = to_labels(cy)
+        c_fit_deep_forest(dataset, &labels, self.deep_forest_id)
+
+    def classify(self, X):
+        cdef cnp.ndarray cX = np.ascontiguousarray(X)
+        cdef MDDataset dataset = to_md_dataset(cX)
+        n_instances, n_classes = len(X), self.n_classes
+        preds = ptr_to_cls_predictions(
+	        c_deep_forest_classify(dataset, self.deep_forest_id),
+	        n_instances, n_classes)
+        return preds
