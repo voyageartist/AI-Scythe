@@ -80,4 +80,10 @@ float* ClassificationCompleteRF::classify(VirtualDataset* dataset) {
         }
         delete[] predictions;
     }
-   
+    for (unsigned int k = 0; k < n_probs; k++) {
+        probabilities[k] /= static_cast<float>(n_trees);
+    }
+    return probabilities;
+}
+
+}
