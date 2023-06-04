@@ -65,4 +65,10 @@ float* ClassificationCompleteRF::classify(VirtualDataset* dataset) {
     size_t n_trees = trees.size();
     float* probabilities = new float[n_probs]();
     #ifdef _OMP
-        #pragma omp parallel for num_threads(parameters.n_jobs) shared(
+        #pragma omp parallel for num_threads(parameters.n_jobs) shared(probabilities)
+    #endif
+    for (unsigned int i = 0; i < n_trees; i++) {
+        std::shared_ptr<Tree> tree = trees.at(i);
+        float* predictions = classifyFromTree(
+            dataset,
+            dataset->get
