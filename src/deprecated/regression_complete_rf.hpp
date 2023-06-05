@@ -10,4 +10,14 @@
 #define REGRESSION_COMPLETE_RF_HPP_
 
 #include "forest.hpp"
-#include "../metr
+#include "../metrics/regression_metrics.hpp"
+
+
+namespace scythe {
+
+class RegressionCompleteRF : public Forest {
+private:
+    std::shared_ptr<RegressionError> score_metric;
+public:
+    RegressionCompleteRF(ForestConfig*, size_t, size_t);
+    vo
