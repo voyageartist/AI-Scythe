@@ -32,4 +32,8 @@ private:
 public:
     ScannedDataset1D(void* data, size_t N, size_t M, size_t kc, int dtype);
     ScannedDataset1D(const ScannedDataset1D& other) = default;
-    ScannedDatase
+    ScannedDataset1D& operator=(const ScannedDataset1D& other) = default;
+    ~ScannedDataset1D() override = default;
+    virtual VirtualDataset* deepcopy();
+    virtual VirtualDataset* createView(void* view, size_t n_rows);
+    vir
