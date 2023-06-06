@@ -24,4 +24,12 @@ private:
     size_t Nprime; // Number of instances after scanning
     size_t Mprime; // Number of features after scanning
 
-    void* data; /
+    void* data; // Pointer to the raw data
+    int dtype;    // Raw data type
+
+    // Iterator cursors
+
+public:
+    ScannedDataset1D(void* data, size_t N, size_t M, size_t kc, int dtype);
+    ScannedDataset1D(const ScannedDataset1D& other) = default;
+    ScannedDatase
