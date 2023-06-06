@@ -45,4 +45,7 @@ public:
 
     // Getters
     size_t getSc() { return sc; }
-  
+    virtual size_t getNumInstances() { return Nprime; }
+    virtual size_t getNumFeatures() { return Mprime; }
+    virtual size_t getNumVirtualInstancesPerInstance() { return sc; }
+    virtual size_t getNumRows() { re
