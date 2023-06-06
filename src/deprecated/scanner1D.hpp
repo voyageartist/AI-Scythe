@@ -17,4 +17,11 @@ namespace scythe {
 class ScannedDataset1D : public VirtualDataset {
 private:
     size_t N;  // Number of instances
-    size_t 
+    size_t M;  // Number of features
+    size_t kc; // Kernel width
+    size_t sc; // Number of kernel positions per column
+
+    size_t Nprime; // Number of instances after scanning
+    size_t Mprime; // Number of features after scanning
+
+    void* data; /
