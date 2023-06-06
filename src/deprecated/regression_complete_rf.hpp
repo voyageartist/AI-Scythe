@@ -29,4 +29,4 @@ public:
 
 }
 
-#e
+#endif // REGRESSION_COMPLETE_RF_HPP_
