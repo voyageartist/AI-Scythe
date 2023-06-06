@@ -36,4 +36,13 @@ public:
     ~ScannedDataset1D() override = default;
     virtual VirtualDataset* deepcopy();
     virtual VirtualDataset* createView(void* view, size_t n_rows);
-    vir
+    virtual data_t operator()(size_t i, size_t j);
+
+    // Virtual iterator
+    virtual void _iterator_begin(const size_t j);
+    virtual void _iterator_inc();
+    virtual data_t _iterator_deref();
+
+    // Getters
+    size_t getSc() { return sc; }
+  
