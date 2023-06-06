@@ -20,4 +20,13 @@ private:
     std::shared_ptr<RegressionError> score_metric;
 public:
     RegressionCompleteRF(ForestConfig*, size_t, size_t);
-    vo
+    void init();
+    void preprocessDensities(VirtualDataset* dataset);
+    void fit(VirtualDataset* dataset, VirtualTargets* targets);
+    void fitNewTree(VirtualDataset* dataset, VirtualTargets* targets);
+    ~RegressionCompleteRF() = default;
+};
+
+}
+
+#e
