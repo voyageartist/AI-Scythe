@@ -75,4 +75,15 @@ public:
 
     // Virtual iterator
     virtual void   _iterator_begin();
-    virtual void   _iterator_inc(
+    virtual void   _iterator_inc();
+    virtual data_t _iterator_deref();
+
+    virtual void allocateFromSampleMask(size_t*, size_t, size_t, size_t);
+};
+
+
+class MultiGrainedScanner1D : public Layer {
+private:
+    size_t kc; // Kernel width
+public:
+    MultiGrainedScanner1D(LayerConfig lconfig, size_t kc
