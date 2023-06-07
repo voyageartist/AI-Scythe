@@ -86,4 +86,10 @@ class MultiGrainedScanner1D : public Layer {
 private:
     size_t kc; // Kernel width
 public:
-    MultiGrainedScanner1D(LayerConfig lconfig, size_t kc
+    MultiGrainedScanner1D(LayerConfig lconfig, size_t kc);
+    ~MultiGrainedScanner1D() {}
+    virtual vdataset_p virtualize(MDDataset dataset);
+    virtual vtargets_p virtualizeTargets(Labels* targets);
+    virtual size_t getNumVirtualFeatures();
+    virtual bool isConcatenable() { return false; }
+    virtual
