@@ -92,4 +92,9 @@ public:
     virtual vtargets_p virtualizeTargets(Labels* targets);
     virtual size_t getNumVirtualFeatures();
     virtual bool isConcatenable() { return false; }
-    virtual
+    virtual std::string getType() { return std::string("MultiGrainedScanner1D"); }
+};
+
+} // namespace
+
+#endif // SCANNER1D_HPP_
