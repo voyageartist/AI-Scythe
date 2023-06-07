@@ -53,4 +53,15 @@ public:
     virtual int    getDataType() { return dtype; }
     virtual void*  getData() { return data; }
 
-    virtual void allocateFromSampleMask(size_t* const mask, size_t, size_t, size
+    virtual void allocateFromSampleMask(size_t* const mask, size_t, size_t, size_t, size_t);
+};
+
+
+class ScannedTargets1D : public VirtualTargets {
+private:
+    target_t* data;
+    size_t n_rows;
+    size_t s;
+public:
+    ScannedTargets1D(target_t* data, size_t n_instances, size_t sc);
+    ScannedTargets1D(const ScannedTargets1D& other) =
