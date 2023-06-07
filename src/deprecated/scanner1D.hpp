@@ -64,4 +64,9 @@ private:
     size_t s;
 public:
     ScannedTargets1D(target_t* data, size_t n_instances, size_t sc);
-    ScannedTargets1D(const ScannedTargets1D& other) =
+    ScannedTargets1D(const ScannedTargets1D& other) = default;
+    ScannedTargets1D& operator=(const ScannedTargets1D& other) = default;
+    ~ScannedTargets1D() override = default;
+    virtual VirtualTargets* deepcopy();
+    virtual VirtualTargets* createView(void* view, size_t n_rows);
+    virtual targ
