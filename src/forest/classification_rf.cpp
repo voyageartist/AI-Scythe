@@ -34,4 +34,7 @@ void ClassificationRF::fitNewTree(VirtualDataset* dataset, VirtualTargets* targe
     std::shared_ptr<Tree> new_tree;
     if (config.bagging_fraction < 1.0) {
         size_t n_rows = targets->getNumInstances();
-   
+        size_t bag_size = config.bagging_fraction * n_rows;
+        std::vector<size_t> indexes = randomSet(bag_size, n_rows);
+        dataset_view = dataset->shuffleAndCreateView(indexes);
+        targets_view = targets->shuffleAndCreat
