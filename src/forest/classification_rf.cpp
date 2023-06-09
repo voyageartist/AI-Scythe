@@ -28,4 +28,10 @@ ClassificationRF::ClassificationRF
 }
 
 void ClassificationRF::fitNewTree(VirtualDataset* dataset, VirtualTargets* targets) {
-    assert(dataset->get
+    assert(dataset->getNumInstances() == targets->getNumInstances());
+    VirtualDataset* dataset_view;
+    VirtualTargets* targets_view;
+    std::shared_ptr<Tree> new_tree;
+    if (config.bagging_fraction < 1.0) {
+        size_t n_rows = targets->getNumInstances();
+   
