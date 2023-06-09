@@ -21,4 +21,11 @@ ClassificationRF::ClassificationRF
         Forest::base_tree_config.max_n_features = n_features;
     }
     /*
-    this->score_m
+    this->score_metric = std::move(
+        std::shared_ptr<ClassificationError>(
+            new MultiLogLossError(config->n_classes, n_instances)));
+    */
+}
+
+void ClassificationRF::fitNewTree(VirtualDataset* dataset, VirtualTargets* targets) {
+    assert(dataset->get
