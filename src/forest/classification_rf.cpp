@@ -37,4 +37,11 @@ void ClassificationRF::fitNewTree(VirtualDataset* dataset, VirtualTargets* targe
         size_t bag_size = config.bagging_fraction * n_rows;
         std::vector<size_t> indexes = randomSet(bag_size, n_rows);
         dataset_view = dataset->shuffleAndCreateView(indexes);
-        targets_view = targets->shuffleAndCreat
+        targets_view = targets->shuffleAndCreateView(indexes);
+        new_tree = std::shared_ptr<Tree>(CART(
+            dataset_view, targets_view, &(Forest::base_tree_config), this->densities.get()));
+        delete dataset_view;
+        delete targets_view;
+    }
+    else {
+        ne
