@@ -44,4 +44,10 @@ void ClassificationRF::fitNewTree(VirtualDataset* dataset, VirtualTargets* targe
         delete targets_view;
     }
     else {
-        ne
+        new_tree = std::shared_ptr<Tree>(CART(
+            dataset, targets, &(Forest::base_tree_config), this->densities.get()));
+    }
+    Forest::trees.push_back(new_tree);
+}
+
+void ClassificationRF::fit(VirtualDataset* dataset, Vir
