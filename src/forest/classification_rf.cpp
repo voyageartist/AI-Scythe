@@ -56,4 +56,11 @@ void ClassificationRF::fit(VirtualDataset* dataset, VirtualTargets* targets) {
         #pragma omp parallel for num_threads(parameters.n_jobs)
     #endif
     for (uint n_trees = 0; n_trees < Forest::config.n_iter; n_trees++) {
-        Forest::prep
+        Forest::preprocessDensities(dataset);
+        this->fitNewTree(dataset, targets);
+    }
+}
+
+float* ClassificationRF::classify(VirtualDataset* dataset) {
+    size_t n_classes = Forest::config.n_classes;
+    size_t n_instances = dataset
