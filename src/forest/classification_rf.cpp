@@ -63,4 +63,9 @@ void ClassificationRF::fit(VirtualDataset* dataset, VirtualTargets* targets) {
 
 float* ClassificationRF::classify(VirtualDataset* dataset) {
     size_t n_classes = Forest::config.n_classes;
-    size_t n_instances = dataset
+    size_t n_instances = dataset->getNumInstances();
+    size_t n_probs = n_classes * n_instances;
+    size_t n_trees = trees.size();
+    float* probabilities = new float[n_probs]();
+    #ifdef _OMP
+        #pragma omp parallel for num_threads(parameters.n_jobs) shar
