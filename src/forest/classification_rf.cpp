@@ -75,3 +75,10 @@ float* ClassificationRF::classify(VirtualDataset* dataset) {
         float* predictions = classifyFromTree(
             dataset,
             dataset->getNumInstances(), 
+            dataset->getNumFeatures(),
+            tree.get(),
+            &base_tree_config);
+        for (unsigned int k = 0; k < n_probs; k++) {
+            probabilities[k] += predictions[k];
+        }
+        delete[] predictions;
