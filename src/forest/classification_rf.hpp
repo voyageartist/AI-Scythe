@@ -17,4 +17,10 @@
 
 namespace scythe {
 
-class C
+class ClassificationRF : public ClassificationForest {
+private:
+    std::shared_ptr<ClassificationError> score_metric;
+public:
+    ClassificationRF(ForestConfig*, size_t, size_t);
+    void init();
+    void fit(VirtualDataset* dataset, Virtua
