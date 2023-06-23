@@ -23,4 +23,12 @@ private:
 public:
     ClassificationRF(ForestConfig*, size_t, size_t);
     void init();
-    void fit(VirtualDataset* dataset, Virtua
+    void fit(VirtualDataset* dataset, VirtualTargets* targets);
+    void fitNewTree(VirtualDataset* dataset, VirtualTargets* targets);
+    float* classify(VirtualDataset* dataset);
+    ~ClassificationRF() = default;
+};
+
+}
+
+#endif // CLASSIFICATION_RF_HPP_
