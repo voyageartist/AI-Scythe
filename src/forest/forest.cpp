@@ -14,4 +14,8 @@ namespace scythe {
 void Forest::preprocessDensities(VirtualDataset* dataset) {
     if (dataset->getDataType() == DTYPE_UINT_8) {
         /**
-        this
+        this->densities = std::move(std::shared_ptr<Density>(
+            getArbitraryPixelDensities(
+                dataset->getNumFeatures(), base_tree_config.n_classes)));
+        */
+        this->densities = std::move(std::s
