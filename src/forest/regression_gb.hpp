@@ -13,4 +13,12 @@
 #include "../metrics/regression_metrics.hpp"
 
 
-namespace s
+namespace scythe {
+
+class RegressionGB : public Forest {
+private:
+    std::shared_ptr<RegressionError> score_metric;
+public:
+    RegressionGB(ForestConfig*, size_t, size_t);
+    void init();
+    void fit(VirtualDataset* dataset, VirtualTargets* targ
