@@ -32,4 +32,8 @@ void Forest::preprocessDensities(VirtualDataset* dataset) {
     }
     else {
         this->densities = std::move(std::shared_ptr<Density>(computeDensities(
-            dataset, ba
+            dataset, base_tree_config.n_classes, base_tree_config.nan_value, base_tree_config.partitioning)));
+    }
+}
+
+}
