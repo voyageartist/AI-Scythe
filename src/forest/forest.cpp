@@ -23,4 +23,9 @@ void Forest::preprocessDensities(VirtualDataset* dataset) {
     }
     else if (dataset->getDataType() == DTYPE_PROBA) {
         /**
-        this->densities = std::move(std::shared_
+        this->densities = std::move(std::shared_ptr<Density>(
+            getArbitraryProbaDensities(
+                dataset->getNumFeatures(), base_tree_config.n_classes)));
+        */
+        this->densities = std::move(std::shared_ptr<Density>(computeDensities(
+            dat
