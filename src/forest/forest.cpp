@@ -18,4 +18,9 @@ void Forest::preprocessDensities(VirtualDataset* dataset) {
             getArbitraryPixelDensities(
                 dataset->getNumFeatures(), base_tree_config.n_classes)));
         */
-        this->densities = std::move(std::s
+        this->densities = std::move(std::shared_ptr<Density>(computeDensities(
+            dataset, base_tree_config.n_classes, base_tree_config.nan_value, base_tree_config.partitioning)));
+    }
+    else if (dataset->getDataType() == DTYPE_PROBA) {
+        /**
+        this->densities = std::move(std::shared_
