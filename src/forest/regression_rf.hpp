@@ -9,4 +9,14 @@
 #ifndef REGRESSION_RF_HPP_
 #define REGRESSION_RF_HPP_
 
-#in
+#include "forest.hpp"
+#include "../metrics/regression_metrics.hpp"
+
+
+namespace scythe {
+
+class RegressionRF : public Forest {
+private:
+    std::shared_ptr<RegressionError> score_metric;
+public:
+    RegressionRF(ForestC
