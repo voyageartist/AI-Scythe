@@ -19,4 +19,9 @@ class RegressionRF : public Forest {
 private:
     std::shared_ptr<RegressionError> score_metric;
 public:
-    RegressionRF(ForestC
+    RegressionRF(ForestConfig*, size_t, size_t);
+    void init();
+    void preprocessDensities(VirtualDataset* dataset);
+    void fit(VirtualDataset* dataset, VirtualTargets* targets);
+    void fitNewTree(VirtualDataset* dataset, VirtualTargets* targets);
+    ~Reg
