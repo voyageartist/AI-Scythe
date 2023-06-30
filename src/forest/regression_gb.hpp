@@ -25,4 +25,9 @@ public:
     float* fitBaseTree(VirtualDataset* dataset, VirtualTargets* targets);
     void fitNewTree(VirtualDataset* dataset, VirtualTargets* gradient);
     data_t* predictGradient(std::shared_ptr<Tree> tree, VirtualDataset* dataset);
-    ~
+    ~RegressionGB() = default;
+};
+
+}
+
+#endif // REGRESSION_GB_HPP_
