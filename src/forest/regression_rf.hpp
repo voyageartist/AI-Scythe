@@ -24,4 +24,9 @@ public:
     void preprocessDensities(VirtualDataset* dataset);
     void fit(VirtualDataset* dataset, VirtualTargets* targets);
     void fitNewTree(VirtualDataset* dataset, VirtualTargets* targets);
-    ~Reg
+    ~RegressionRF() = default;
+};
+
+}
+
+#endif // REGRESSION_RF_HPP_
