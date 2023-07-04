@@ -17,4 +17,16 @@
 Reference
 ---------
 
-http://luthuli.cs.uiuc.edu/~daf/courses
+http://luthuli.cs.uiuc.edu/~daf/courses/optimization/papers/2699986.pdf
+pg 1201
+*/
+
+namespace scythe {
+
+class ClassificationError {
+protected:
+    size_t n_classes;
+    size_t n_instances;
+    std::shared_ptr<target_t> gradient;
+public:
+    inline size_t g
