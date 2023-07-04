@@ -39,4 +39,11 @@ public:
     virtual ~ClassificationError();
 };
 
-class MultiLogLossError : pub
+class MultiLogLossError : public ClassificationError {
+private:
+    double stability_threshold = 10.0e-15;
+public:
+    MultiLogLossError(size_t n_classes, size_t n_instances) {
+        ClassificationError::n_classes = n_classes;
+        ClassificationError::n_instances = n_instances;
+        Cl
