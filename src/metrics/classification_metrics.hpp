@@ -46,4 +46,9 @@ public:
     MultiLogLossError(size_t n_classes, size_t n_instances) {
         ClassificationError::n_classes = n_classes;
         ClassificationError::n_instances = n_instances;
-        Cl
+        ClassificationError::gradient = std::move(std::shared_ptr<target_t>(new target_t[n_classes * n_instances]));
+    }
+
+    inline size_t getNumberOfRequiredTrees() { return this->n_classes; }
+
+    inline double getStabilityThreshold() { return t
