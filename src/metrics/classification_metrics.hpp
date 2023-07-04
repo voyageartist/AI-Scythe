@@ -68,4 +68,9 @@ public:
                 }
             }
         }
-        retu
+        return loss / static_cast<double>(n_instances);
+    }
+
+    void computeGradient(float* const probabilities, target_t* const targets) {
+        for (uint i = 0; i < this->n_instances; i++) {
+            for (uint j = 0; j < thi
