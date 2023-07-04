@@ -61,4 +61,11 @@ public:
                     data_t prob = probabilities[i * this->n_classes + j];
                     prob = std::max(
                         std::min(
-                        
+                            static_cast<double>(prob),
+                            1.0 - this->stability_threshold), 
+                        this->stability_threshold);
+                    loss -= log(prob);
+                }
+            }
+        }
+        retu
