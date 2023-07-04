@@ -33,4 +33,10 @@ public:
     inline size_t getNumberOfInstances() { return this->n_instances; }
     virtual size_t getNumberOfRequiredTrees() = 0;
     virtual void computeGradient(float* const, target_t* const) = 0;
-    vi
+    virtual loss_t computeLoss(float* const, VirtualTargets* const) = 0;
+    ClassificationError();
+    ClassificationError(size_t n_classes, size_t n_instances);
+    virtual ~ClassificationError();
+};
+
+class MultiLogLossError : pub
