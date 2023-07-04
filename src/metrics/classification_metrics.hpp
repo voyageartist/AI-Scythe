@@ -51,4 +51,9 @@ public:
 
     inline size_t getNumberOfRequiredTrees() { return this->n_classes; }
 
-    inline double getStabilityThreshold() { return t
+    inline double getStabilityThreshold() { return this->stability_threshold; }
+
+    loss_t computeLoss(float* const probabilities, VirtualTargets* const targets) {
+        loss_t loss = 0.0;
+        for (uint i = 0; i < this->n_instances; i++) {
+            for (uint j = 0;
