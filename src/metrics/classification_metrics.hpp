@@ -56,4 +56,9 @@ public:
     loss_t computeLoss(float* const probabilities, VirtualTargets* const targets) {
         loss_t loss = 0.0;
         for (uint i = 0; i < this->n_instances; i++) {
-            for (uint j = 0;
+            for (uint j = 0; j < this->n_classes; j++) {
+                if (static_cast<size_t>((*targets)[i]) == j) {
+                    data_t prob = probabilities[i * this->n_classes + j];
+                    prob = std::max(
+                        std::min(
+                        
