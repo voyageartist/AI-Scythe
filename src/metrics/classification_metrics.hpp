@@ -81,4 +81,18 @@ public:
                         1.0 - this->stability_threshold), 
                     this->stability_threshold);
                 data_t gradient_at_ij = (static_cast<size_t>(targets[i]) == j) ? (prob - 1.0) : (prob);
-                this->gradient.get()[j * this->n_instances + i] = g
+                this->gradient.get()[j * this->n_instances + i] = gradient_at_ij;
+            }
+        }
+    }
+
+    inline target_t* getGradientAt(size_t class_id) {
+        return this->gradient.get() + this->n_instances * class_id;
+    }
+
+    ~MultiLogLossError() = default;
+};
+
+}
+
+#endif // CLASSIFICATION_METRICS_HPP_
