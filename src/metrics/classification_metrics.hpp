@@ -78,4 +78,7 @@ public:
                 prob = std::max(
                     std::min(
                         static_cast<double>(prob),
-                        1.0 - this->stabi
+                        1.0 - this->stability_threshold), 
+                    this->stability_threshold);
+                data_t gradient_at_ij = (static_cast<size_t>(targets[i]) == j) ? (prob - 1.0) : (prob);
+                this->gradient.get()[j * this->n_instances + i] = g
