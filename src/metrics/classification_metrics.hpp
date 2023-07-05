@@ -73,4 +73,9 @@ public:
 
     void computeGradient(float* const probabilities, target_t* const targets) {
         for (uint i = 0; i < this->n_instances; i++) {
-            for (uint j = 0; j < thi
+            for (uint j = 0; j < this->n_classes; j++) {
+                data_t prob = probabilities[i * this->n_classes + j];
+                prob = std::max(
+                    std::min(
+                        static_cast<double>(prob),
+                        1.0 - this->stabi
