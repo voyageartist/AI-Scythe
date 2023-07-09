@@ -1,0 +1,3 @@
+/**
+    exceptions.hpp
+    Custom exceptio

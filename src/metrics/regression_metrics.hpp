@@ -26,4 +26,10 @@ public:
     virtual void computeGradient(float* const, target_t* const) = 0;
     virtual loss_t computeLoss(float* const, target_t* const) = 0;
     RegressionError();
-    RegressionError(size_t
+    RegressionError(size_t n_classes, size_t n_instances);
+    virtual ~RegressionError();
+};
+
+}
+
+#endif // REGRESSION_METRICS_HPP_
