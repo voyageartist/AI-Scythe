@@ -15,4 +15,11 @@
 namespace scythe {
 
 class RegressionError {
-protecte
+protected:
+    size_t n_classes;
+    size_t n_instances;
+    std::shared_ptr<data_t> gradient;
+public:
+    inline size_t getNumberOfClasses() { return this->n_classes; }
+    inline size_t getNumberOfInstances() { return this->n_instances; }
+  
