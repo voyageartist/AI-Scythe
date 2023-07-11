@@ -16,4 +16,7 @@ namespace scythe {
 
 class OOPException : public std::runtime_error {
 public:
-    // When an overr
+    // When an overriden method must never be called
+    // Error in the object-oriented design of the class
+    OOPException() : runtime_error("Object-oriented programming error"){}
+    OOPException(std::string msg) : run
