@@ -30,4 +30,17 @@ constexpr int NPY_UINT16_NUM   =  4;
 constexpr int NPY_INT32_NUM    =  7;
 constexpr int NPY_UINT32_NUM   =  8;
 constexpr int NPY_INT64_NUM    =  9;
-constexpr int 
+constexpr int NPY_UINT64_NUM   = 10;
+constexpr int NPY_FLOAT32_NUM  = 11;
+constexpr int NPY_FLOAT64_NUM  = 12;
+constexpr int NPY_FLOAT16_NUM  = 23;
+
+
+struct Parameters {
+    size_t n_jobs = 1;
+    int print_layer_info = 1;
+};
+
+extern Parameters parameters;
+
+} //namesp
