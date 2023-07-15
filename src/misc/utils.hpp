@@ -43,4 +43,6 @@ struct Parameters {
 
 extern Parameters parameters;
 
-} //namesp
+} //namespace
+
+#endif // UTILS_HPP
