@@ -3,4 +3,17 @@
     Primitive data types
 
     @author Antoine Passemiers
-    @ve
+    @version 1.0 12/10/2017
+*/
+
+#ifndef TYPES_HPP_
+#define TYPES_HPP_
+
+
+namespace scythe {
+
+typedef unsigned int uint;
+typedef double       data_t;
+typedef float        fast_data_t;
+typedef double       target_t;
+typedef float        proba
