@@ -19,4 +19,19 @@ public:
     // When an overriden method must never be called
     // Error in the object-oriented design of the class
     OOPException() : runtime_error("Object-oriented programming error"){}
-    OOPException(std::string msg) : run
+    OOPException(std::string msg) : runtime_error(msg.c_str()) {}
+};
+
+class WrongVirtualDatasetException : public std::exception {
+public:
+    const char* what() const throw() { return "This kind of virtual dataset is not compatible\n"; }
+};
+
+class UnhandledDtypeException : public std::exception {
+public:
+    const char* what() const throw() { return "Unknown primitive data type.\n"; }
+};
+
+} // namespace
+
+#endif // EXCEPTIONS_HPP_
