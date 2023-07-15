@@ -16,4 +16,10 @@ typedef unsigned int uint;
 typedef double       data_t;
 typedef float        fast_data_t;
 typedef double       target_t;
-typedef float        proba
+typedef float        proba_t;
+typedef int          label_t;
+
+
+} // namespace
+
+#endif // TREE_HPP_
