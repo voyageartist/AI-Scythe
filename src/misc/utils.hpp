@@ -24,4 +24,10 @@ typedef uint8_t BYTE;
 
 constexpr int NPY_BOOL_NUM     =  0;
 constexpr int NPY_INT8_NUM     =  1;
-co
+constexpr int NPY_UINT8_NUM    =  2;
+constexpr int NPY_INT16_NUM    =  3;
+constexpr int NPY_UINT16_NUM   =  4;
+constexpr int NPY_INT32_NUM    =  7;
+constexpr int NPY_UINT32_NUM   =  8;
+constexpr int NPY_INT64_NUM    =  9;
+constexpr int 
