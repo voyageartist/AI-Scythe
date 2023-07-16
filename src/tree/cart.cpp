@@ -16,4 +16,10 @@ Tree::Tree() :
     n_features(0), config(nullptr), level(1), split_manager(nullptr) {}
 
 Tree::Tree(Node* root, TreeConfig* config, size_t n_features) :
-    root(root), n_no
+    root(root), n_nodes(1), n_classes(config->n_classes),
+    n_features(n_features), config(config), level(1), split_manager(nullptr) {}
+
+Tree::Tree(const Tree& other) {
+    Node* nodes = new Node[other.n_nodes];
+    this->root = &nodes[0];
+    this->n_nodes = other.n_no
