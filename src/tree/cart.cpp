@@ -22,4 +22,12 @@ Tree::Tree(Node* root, TreeConfig* config, size_t n_features) :
 Tree::Tree(const Tree& other) {
     Node* nodes = new Node[other.n_nodes];
     this->root = &nodes[0];
-    this->n_nodes = other.n_no
+    this->n_nodes = other.n_nodes;
+    this->n_classes = other.n_classes;
+    this->n_features = other.n_features;
+    this->config = other.config;
+    this->level = other.level;
+    this->split_manager = other.split_manager;
+
+    size_t current_node_id = 0;
+    std::queue<Node*> 
