@@ -30,4 +30,10 @@ Tree::Tree(const Tree& other) {
     this->split_manager = other.split_manager;
 
     size_t current_node_id = 0;
-    std::queue<Node*> 
+    std::queue<Node*> queue;
+    queue.push(other.root);
+    while (!queue.empty()) {
+        Node* next_node = queue.front(); queue.pop();
+        std::memcpy(&nodes[current_node_id], next_node, sizeof(Node));
+        current_node_id++;
+        if (nex
