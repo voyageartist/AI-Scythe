@@ -36,4 +36,14 @@ Tree::Tree(const Tree& other) {
         Node* next_node = queue.front(); queue.pop();
         std::memcpy(&nodes[current_node_id], next_node, sizeof(Node));
         current_node_id++;
-        if (nex
+        if (next_node->left_child != nullptr) {
+            queue.push(next_node->left_child);
+            queue.push(next_node->right_child);
+        }
+    }
+}
+
+Node::Node(size_t n_classes, int id, size_t n_instances):
+    id(id),
+    n_instances(n_instances),
+    counters(n_classes > 0 ? n
