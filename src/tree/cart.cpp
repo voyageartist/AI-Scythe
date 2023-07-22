@@ -46,4 +46,12 @@ Tree::Tree(const Tree& other) {
 Node::Node(size_t n_classes, int id, size_t n_instances):
     id(id),
     n_instances(n_instances),
-    counters(n_classes > 0 ? n
+    counters(n_classes > 0 ? new (std::nothrow) size_t[n_classes] : nullptr) {
+
+    memset(counters, 0x00, n_classes * sizeof(size_t));
+    }
+
+NodeSpace::NodeSpace(Node* owner, size_t n_features, Density* densities) :
+    owner(owner),
+    current_depth(1),
+   
