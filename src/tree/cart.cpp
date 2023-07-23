@@ -65,4 +65,9 @@ NodeSpace::NodeSpace(Node* owner, size_t n_features, Density* densities) :
 
         @param owner
             Node related to the current space (root of the tree)
-  
+        @param n_features
+            Number of features in the training set
+        @param densities
+            Density functions of the features
+            There are supposed to be n_features densities
+        @return A new NodeSpac
