@@ -59,4 +59,10 @@ NodeSpace::NodeSpace(Node* owner, size_t n_features, Density* densities) :
     /**
         This constructor is called while instantiating the tree's root. 
         When evaluating the split values for
-        t
+        the root, all the partition values of each features are being considered,
+        this is why the left and right bounds of the node space are first set 
+        to their maxima.
+
+        @param owner
+            Node related to the current space (root of the tree)
+  
