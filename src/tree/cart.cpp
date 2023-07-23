@@ -54,4 +54,9 @@ Node::Node(size_t n_classes, int id, size_t n_instances):
 NodeSpace::NodeSpace(Node* owner, size_t n_features, Density* densities) :
     owner(owner),
     current_depth(1),
-   
+    feature_left_bounds(new size_t[n_features]),
+    feature_right_bounds(new size_t[n_features]) {
+    /**
+        This constructor is called while instantiating the tree's root. 
+        When evaluating the split values for
+        t
