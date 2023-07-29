@@ -88,4 +88,9 @@ NodeSpace::NodeSpace(const NodeSpace& node_space, size_t n_features) :
     memcpy(feature_right_bounds, node_space.feature_right_bounds, n_bytes);
 }
 
-Splitter::Splitter(NodeSpace node_space, TreeConfi
+Splitter::Splitter(NodeSpace node_space, TreeConfig* config, size_t n_instances,
+        size_t n_features, size_t* belongs_to, VirtualTargets* targets, SplitManager* split_manager) :
+    task(config->task), 
+    node(node_space.owner),
+    n_instances(n_instances),
+    n_instanc
