@@ -83,4 +83,9 @@ NodeSpace::NodeSpace(const NodeSpace& node_space, size_t n_features) :
     current_depth(node_space.current_depth),
     feature_left_bounds(new size_t[n_features]),
     feature_right_bounds(new size_t[n_features]) {
-    size_t n_bytes = n_fea
+    size_t n_bytes = n_features * sizeof(size_t);
+    memcpy(feature_left_bounds, node_space.feature_left_bounds, n_bytes);
+    memcpy(feature_right_bounds, node_space.feature_right_bounds, n_bytes);
+}
+
+Splitter::Splitter(NodeSpace node_space, TreeConfi
