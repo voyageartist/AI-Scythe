@@ -78,4 +78,9 @@ NodeSpace::NodeSpace(Node* owner, size_t n_features, Density* densities) :
     }
 }
 
-NodeSpace::NodeSpace(const NodeSpace& node
+NodeSpace::NodeSpace(const NodeSpace& node_space, size_t n_features) :
+    owner(node_space.owner), 
+    current_depth(node_space.current_depth),
+    feature_left_bounds(new size_t[n_features]),
+    feature_right_bounds(new size_t[n_features]) {
+    size_t n_bytes = n_fea
