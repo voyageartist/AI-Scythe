@@ -70,4 +70,12 @@ NodeSpace::NodeSpace(Node* owner, size_t n_features, Density* densities) :
         @param densities
             Density functions of the features
             There are supposed to be n_features densities
-        @return A new NodeSpac
+        @return A new NodeSpace for the tree's root
+    */
+    for (uint f = 0; f < n_features; f++) {
+        feature_left_bounds[f] = 1;
+        feature_right_bounds[f] = densities[f].n_values;
+    }
+}
+
+NodeSpace::NodeSpace(const NodeSpace& node
