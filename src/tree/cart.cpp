@@ -108,4 +108,10 @@ Splitter::Splitter(NodeSpace node_space, TreeConfig* config, size_t n_instances,
     node_space(node_space),
     is_complete_random(config->is_complete_random),
     split_manager(split_manager),
-    class_weights(config->class_
+    class_weights(config->class_weights) {}
+
+
+void ordered_push(std::list<NodeSpace>& queue, NodeSpace nodespace, bool ordered) {
+    if (ordered) {
+        bool inserted = false;
+        for (std::list<NodeSpace>::iterator it = queue.begin(); it != queue.end(); ++it)
