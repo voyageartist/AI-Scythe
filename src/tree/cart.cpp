@@ -102,4 +102,10 @@ Splitter::Splitter(NodeSpace node_space, TreeConfig* config, size_t n_instances,
     belongs_to(belongs_to),
     feature_id(static_cast<size_t>(NO_FEATURE)),
     n_features(n_features),
-    targets
+    targets(targets),
+    nan_value(config->nan_value),
+    best_split_id(0),
+    node_space(node_space),
+    is_complete_random(config->is_complete_random),
+    split_manager(split_manager),
+    class_weights(config->class_
