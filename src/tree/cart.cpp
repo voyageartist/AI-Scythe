@@ -131,4 +131,10 @@ void ordered_push(std::list<NodeSpace>& queue, NodeSpace nodespace, bool ordered
 double getFeatureCost(size_t* RESTRICT const counters_left, 
     size_t* RESTRICT const counters_right, size_t n_classes, float* class_weights) {
 
-    size
+    size_t n_left = sum_counts(counters_left, n_classes);
+    size_t n_right = sum_counts(counters_right, n_classes);
+    if (n_left == 0 || n_right == 0) {
+        return COST_OF_EMPTINESS;
+    }
+    double left_cost = 0.0;
+    for (uint i = 0; i < n_classes; i
