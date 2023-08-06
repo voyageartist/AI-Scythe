@@ -114,4 +114,11 @@ Splitter::Splitter(NodeSpace node_space, TreeConfig* config, size_t n_instances,
 void ordered_push(std::list<NodeSpace>& queue, NodeSpace nodespace, bool ordered) {
     if (ordered) {
         bool inserted = false;
-        for (std::list<NodeSpace>::iterator it = queue.begin(); it != queue.end(); ++it)
+        for (std::list<NodeSpace>::iterator it = queue.begin(); it != queue.end(); ++it) {
+            if ((*it).information_gain <= nodespace.information_gain) {
+                queue.insert(it, nodespace);
+                inserted = true;
+                break;
+            }
+        }
+        if (!inserted) qu
