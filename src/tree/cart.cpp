@@ -121,4 +121,14 @@ void ordered_push(std::list<NodeSpace>& queue, NodeSpace nodespace, bool ordered
                 break;
             }
         }
-        if (!inserted) qu
+        if (!inserted) queue.push_back(nodespace);
+    }
+    else {
+        queue.push_back(nodespace);
+    }
+}
+
+double getFeatureCost(size_t* RESTRICT const counters_left, 
+    size_t* RESTRICT const counters_right, size_t n_classes, float* class_weights) {
+
+    size
