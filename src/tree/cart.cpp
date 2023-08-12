@@ -137,4 +137,10 @@ double getFeatureCost(size_t* RESTRICT const counters_left,
         return COST_OF_EMPTINESS;
     }
     double left_cost = 0.0;
-    for (uint i = 0; i < n_classes; i
+    for (uint i = 0; i < n_classes; i++) {
+        left_cost += pow2(static_cast<float>(counters_left[i]) / static_cast<float>(n_left));
+    }
+    left_cost = (1.0 - left_cost);
+    double right_cost = 0.0;
+    for (uint i = 0; i < n_classes; i++) {
+        right_cost += pow2(static
