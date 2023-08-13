@@ -153,4 +153,8 @@ double getFeatureCost(size_t* RESTRICT const counters_left,
 double informationGain(
     size_t* counters, size_t* counters_left, size_t* counters_right, size_t n_classes, float* class_weights) {
 
-    double gini = getFeatureCost(counters_left
+    double gini = getFeatureCost(counters_left, counters_right, n_classes, class_weights);
+    size_t n_total = sum_counts(counters, n_classes);
+    double cost = 0.0;
+    for (uint i = 0; i < n_classes; i++) {
+        cost += pow2(static_cast<float>(counters
