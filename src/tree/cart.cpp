@@ -143,4 +143,8 @@ double getFeatureCost(size_t* RESTRICT const counters_left,
     left_cost = (1.0 - left_cost);
     double right_cost = 0.0;
     for (uint i = 0; i < n_classes; i++) {
-        right_cost += pow2(static
+        right_cost += pow2(static_cast<float>(counters_right[i]) / static_cast<float>(n_right));
+    }
+    right_cost = (1.0 - right_cost);
+    float left_rate = static_cast<float>(n_left) / static_cast<float>(n_left + n_right);
+    return left_cost * left_rate + right_cost
