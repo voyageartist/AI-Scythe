@@ -147,4 +147,10 @@ double getFeatureCost(size_t* RESTRICT const counters_left,
     }
     right_cost = (1.0 - right_cost);
     float left_rate = static_cast<float>(n_left) / static_cast<float>(n_left + n_right);
-    return left_cost * left_rate + right_cost
+    return left_cost * left_rate + right_cost * (1.0 - left_rate);
+}
+
+double informationGain(
+    size_t* counters, size_t* counters_left, size_t* counters_right, size_t n_classes, float* class_weights) {
+
+    double gini = getFeatureCost(counters_left
