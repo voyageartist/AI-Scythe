@@ -157,4 +157,12 @@ double informationGain(
     size_t n_total = sum_counts(counters, n_classes);
     double cost = 0.0;
     for (uint i = 0; i < n_classes; i++) {
-        cost += pow2(static_cast<float>(counters
+        cost += pow2(static_cast<float>(counters[i]) / static_cast<float>(n_total));
+    }
+    cost = (1.0 - cost);
+    double gain = cost - gini;
+    gain = (gain < 0.0) ? 0.0 : gain;
+    return gain;
+}
+
+double evaluatePartitions(VirtualDataset* RESTRICT data, c
