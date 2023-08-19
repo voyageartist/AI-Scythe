@@ -165,4 +165,8 @@ double informationGain(
     return gain;
 }
 
-double evaluatePartitions(VirtualDataset* RESTRICT data, c
+double evaluatePartitions(VirtualDataset* RESTRICT data, const Density* RESTRICT density, 
+    const Splitter* RESTRICT splitter, double split_value_double) {
+    size_t* counters_left = density->counters_left;
+    size_t* counters_right = density->counters_right;
+    std::fill(counters_lef
