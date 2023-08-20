@@ -169,4 +169,8 @@ double evaluatePartitions(VirtualDataset* RESTRICT data, const Density* RESTRICT
     const Splitter* RESTRICT splitter, double split_value_double) {
     size_t* counters_left = density->counters_left;
     size_t* counters_right = density->counters_right;
-    std::fill(counters_lef
+    std::fill(counters_left, counters_left + splitter->n_classes, 0);
+    std::fill(counters_right, counters_right + splitter->n_classes, 0);
+    fast_data_t split_value = static_cast<fast_data_t>(split_value_double);
+    
+    label_t* RESTRICT contiguous_labels = (*(splitter->targets)).r
