@@ -173,4 +173,11 @@ double evaluatePartitions(VirtualDataset* RESTRICT data, const Density* RESTRICT
     std::fill(counters_right, counters_right + splitter->n_classes, 0);
     fast_data_t split_value = static_cast<fast_data_t>(split_value_double);
     
-    label_t* RESTRICT contiguous_labels = (*(splitter->targets)).r
+    label_t* RESTRICT contiguous_labels = (*(splitter->targets)).retrieveContiguousData();
+
+    size_t* counter_ptrs[2] = { counters_left, counters_right };
+
+    switch (data->getDataType()) {
+        case NPY_UINT8_NUM:
+            count_instances(static_cast<uint8_t*>(data->retrieveContiguousData()),
+      
