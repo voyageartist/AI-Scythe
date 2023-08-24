@@ -180,4 +180,8 @@ double evaluatePartitions(VirtualDataset* RESTRICT data, const Density* RESTRICT
     switch (data->getDataType()) {
         case NPY_UINT8_NUM:
             count_instances(static_cast<uint8_t*>(data->retrieveContiguousData()),
-      
+                contiguous_labels, counter_ptrs, splitter->n_instances_in_node, split_value, splitter->nan_value);
+            break;
+        default:
+            count_instances(static_cast<fast_data_t*>(data->retrieveContiguousData()), 
+       
