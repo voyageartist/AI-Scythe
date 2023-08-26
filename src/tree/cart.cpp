@@ -184,4 +184,10 @@ double evaluatePartitions(VirtualDataset* RESTRICT data, const Density* RESTRICT
             break;
         default:
             count_instances(static_cast<fast_data_t*>(data->retrieveContiguousData()), 
-       
+                contiguous_labels, counter_ptrs, splitter->n_instances_in_node, split_value, splitter->nan_value);
+            break;
+    }
+    return getFeatureCost(counters_left, counters_right, splitter->n_classes, splitter->class_weights);
+}
+
+double evaluatePartitio
