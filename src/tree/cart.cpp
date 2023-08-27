@@ -195,4 +195,10 @@ double evaluatePartitionsWithRegression(VirtualDataset* data, Density* density, 
     data_t data_point, nan_value = splitter->nan_value;
     double y;
     size_t id = splitter->node->id;
-    size_t* belongs_to = spli
+    size_t* belongs_to = splitter->belongs_to;
+    size_t n_left = 0, n_right = 0;
+    density->split_value = density->values[k];
+    VirtualTargets* targets = splitter->targets;
+    data_t split_value = density->split_value;
+    double mean_left = 0.0, mean_right = 0.0;
+    do
