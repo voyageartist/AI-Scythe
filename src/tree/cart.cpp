@@ -190,4 +190,9 @@ double evaluatePartitions(VirtualDataset* RESTRICT data, const Density* RESTRICT
     return getFeatureCost(counters_left, counters_right, splitter->n_classes, splitter->class_weights);
 }
 
-double evaluatePartitio
+double evaluatePartitionsWithRegression(VirtualDataset* data, Density* density, Splitter* splitter, size_t k) {
+    size_t i = splitter->feature_id;
+    data_t data_point, nan_value = splitter->nan_value;
+    double y;
+    size_t id = splitter->node->id;
+    size_t* belongs_to = spli
