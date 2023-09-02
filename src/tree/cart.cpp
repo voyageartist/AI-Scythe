@@ -207,4 +207,14 @@ double evaluatePartitionsWithRegression(VirtualDataset* data, Density* density, 
         if (belongs_to[j] == id) {
             data_point = (*data)(j, i);
             y = static_cast<double>((*targets)[j]);
-            // if (dat
+            // if (data_point == nan_value) {}
+            if (data_point >= split_value) {
+                mean_right += y;
+                n_right++;
+            }
+            else {
+                mean_left += y;
+                n_left++;
+            }
+        }
+    
