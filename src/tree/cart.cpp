@@ -201,4 +201,10 @@ double evaluatePartitionsWithRegression(VirtualDataset* data, Density* density, 
     VirtualTargets* targets = splitter->targets;
     data_t split_value = density->split_value;
     double mean_left = 0.0, mean_right = 0.0;
-    do
+    double cost = 0.0;
+
+    for (uint j = 0; j < splitter->n_instances; j++) {
+        if (belongs_to[j] == id) {
+            data_point = (*data)(j, i);
+            y = static_cast<double>((*targets)[j]);
+            // if (dat
