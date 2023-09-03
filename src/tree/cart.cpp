@@ -246,4 +246,6 @@ double evaluateBySingleThreshold(Splitter* splitter, Density* density, const Vir
     return 0.0; // TODO
 }
 
-double 
+double evaluateByThreshold(Splitter* splitter, Density* density, VirtualDataset* data) {
+    size_t lower_bound = splitter->node_space.feature_left_bounds[splitter->feature_id];
+    size_t upper_bound = splitter->node_space.feature_right_bounds[splitter->feature_i
