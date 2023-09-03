@@ -217,4 +217,10 @@ double evaluatePartitionsWithRegression(VirtualDataset* data, Density* density, 
                 n_left++;
             }
         }
-    
+    }
+    mean_left /= static_cast<double>(n_left);
+    mean_right /= static_cast<double>(n_right);
+    splitter->mean_left  = mean_left;
+    splitter->mean_right = mean_right;
+    splitter->n_left = n_left;
+    splitter->n_right = n_ri
