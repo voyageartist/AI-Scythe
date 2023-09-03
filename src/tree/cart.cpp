@@ -223,4 +223,10 @@ double evaluatePartitionsWithRegression(VirtualDataset* data, Density* density, 
     splitter->mean_left  = mean_left;
     splitter->mean_right = mean_right;
     splitter->n_left = n_left;
-    splitter->n_right = n_ri
+    splitter->n_right = n_right;
+    if ((n_left == 0) || (n_right == 0)) { return INFINITY; }
+    for (uint j = 0; j < splitter->n_instances; j++) {
+        if (splitter->belongs_to[j] == id) {
+            data_point = (*data)(j, i);
+            y = (*targets)[j];
+            // if (data
