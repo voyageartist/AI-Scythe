@@ -234,4 +234,16 @@ double evaluatePartitionsWithRegression(VirtualDataset* data, Density* density, 
                 cost += abs(mean_right - y); // TODO : use squared error ?
             }
             else {
-                cost += abs(mean_left - y); // TODO : u
+                cost += abs(mean_left - y); // TODO : use squared error ?
+            }
+        }
+    }
+    // printf("Cost : %f", cost);
+    return cost;
+}
+
+double evaluateBySingleThreshold(Splitter* splitter, Density* density, const VirtualDataset* data) {
+    return 0.0; // TODO
+}
+
+double 
