@@ -229,4 +229,9 @@ double evaluatePartitionsWithRegression(VirtualDataset* data, Density* density, 
         if (splitter->belongs_to[j] == id) {
             data_point = (*data)(j, i);
             y = (*targets)[j];
-            // if (data
+            // if (data_point == splitter->nan_value) {}
+            if (data_point >= split_value) {
+                cost += abs(mean_right - y); // TODO : use squared error ?
+            }
+            else {
+                cost += abs(mean_left - y); // TODO : u
