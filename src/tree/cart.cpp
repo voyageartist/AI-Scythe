@@ -252,4 +252,13 @@ double evaluateByThreshold(Splitter* splitter, Density* density, VirtualDataset*
     if (lower_bound == upper_bound) { return INFINITY; }
     if (splitter->is_complete_random) {
         // return evaluateBySingleThreshold(splitter, density, data);
-        size_t random_bound = lower_bound + (rand() % (upper_bound - lower_
+        size_t random_bound = lower_bound + (rand() % (upper_bound - lower_bound));
+        lower_bound = random_bound;
+        upper_bound = random_bound + 1;
+    }
+    size_t n_classes = splitter->n_classes;
+
+    data->allocateFromSampleMask(
+        splitter->belongs_to,
+        splitter->node->id,
+ 
