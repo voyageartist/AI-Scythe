@@ -248,4 +248,8 @@ double evaluateBySingleThreshold(Splitter* splitter, Density* density, const Vir
 
 double evaluateByThreshold(Splitter* splitter, Density* density, VirtualDataset* data) {
     size_t lower_bound = splitter->node_space.feature_left_bounds[splitter->feature_id];
-    size_t upper_bound = splitter->node_space.feature_right_bounds[splitter->feature_i
+    size_t upper_bound = splitter->node_space.feature_right_bounds[splitter->feature_id];
+    if (lower_bound == upper_bound) { return INFINITY; }
+    if (splitter->is_complete_random) {
+        // return evaluateBySingleThreshold(splitter, density, data);
+        size_t random_bound = lower_bound + (rand() % (upper_bound - lower_
