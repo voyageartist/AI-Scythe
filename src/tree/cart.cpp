@@ -275,4 +275,8 @@ double evaluateByThreshold(Splitter* splitter, Density* density, VirtualDataset*
     size_t best_counters_left[MAX_N_CLASSES];
     size_t best_counters_right[MAX_N_CLASSES];
     for (size_t k = lower_bound; k < upper_bound; k++) {
-        i
+        if (splitter->split_manager->shouldEvaluate(splitter->feature_id, k)) {
+            double cost;
+            if (splitter->task == CLASSIFICATION_TASK) {
+                density->split_value = density->values[k];
+                cost = evaluatePartiti
