@@ -268,4 +268,11 @@ double evaluateByThreshold(Splitter* splitter, Density* density, VirtualDataset*
         splitter->belongs_to,
         splitter->node->id,
         splitter->n_instances_in_node,
-       
+        splitter->n_instances);
+
+    size_t best_split_id = 0;
+    double lowest_cost = INFINITY;
+    size_t best_counters_left[MAX_N_CLASSES];
+    size_t best_counters_right[MAX_N_CLASSES];
+    for (size_t k = lower_bound; k < upper_bound; k++) {
+        i
