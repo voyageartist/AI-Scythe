@@ -279,4 +279,10 @@ double evaluateByThreshold(Splitter* splitter, Density* density, VirtualDataset*
             double cost;
             if (splitter->task == CLASSIFICATION_TASK) {
                 density->split_value = density->values[k];
-                cost = evaluatePartiti
+                cost = evaluatePartitions(data, density, splitter, density->split_value);
+            }
+            else {
+                cost = evaluatePartitionsWithRegression(data, density, splitter, k);
+            }
+            if (cost < lowest_cost) {
+                lowest_cost = co
