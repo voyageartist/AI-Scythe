@@ -285,4 +285,7 @@ double evaluateByThreshold(Splitter* splitter, Density* density, VirtualDataset*
                 cost = evaluatePartitionsWithRegression(data, density, splitter, k);
             }
             if (cost < lowest_cost) {
-                lowest_cost = co
+                lowest_cost = cost;
+                best_split_id = k;
+                memcpy(best_counters_left, density->counters_left, n_classes * sizeof(size_t));
+                memcpy(best_counters_right, density->counters_right, n_classes * sizeof(
