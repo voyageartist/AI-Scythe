@@ -288,4 +288,11 @@ double evaluateByThreshold(Splitter* splitter, Density* density, VirtualDataset*
                 lowest_cost = cost;
                 best_split_id = k;
                 memcpy(best_counters_left, density->counters_left, n_classes * sizeof(size_t));
-                memcpy(best_counters_right, density->counters_right, n_classes * sizeof(
+                memcpy(best_counters_right, density->counters_right, n_classes * sizeof(size_t));
+            }
+            splitter->best_split_id = best_split_id;
+            density->split_value = density->values[best_split_id];
+        }
+    }
+    if (splitter->task == CLASSIFICATION_TASK) {
+        me
