@@ -295,4 +295,9 @@ double evaluateByThreshold(Splitter* splitter, Density* density, VirtualDataset*
         }
     }
     if (splitter->task == CLASSIFICATION_TASK) {
-        me
+        memcpy(density->counters_left, best_counters_left, n_classes * sizeof(size_t));
+        memcpy(density->counters_right, best_counters_right, n_classes * sizeof(size_t));
+    }
+    else {
+        // TODO: Remove function call and save side effects
+        evaluatePart
