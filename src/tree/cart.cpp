@@ -300,4 +300,10 @@ double evaluateByThreshold(Splitter* splitter, Density* density, VirtualDataset*
     }
     else {
         // TODO: Remove function call and save side effects
-        evaluatePart
+        evaluatePartitionsWithRegression(data, density, splitter, best_split_id);
+    }
+    return lowest_cost;
+}
+
+Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config, Density* densities) {
+    size_t n_instances = dataset->getNumInstanc
