@@ -311,4 +311,8 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
     return CART(dataset, targets, config, densities, belongs_to);
 }
 
-Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* conf
+Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config, Density* densities, size_t* belongs_to) {
+    size_t n_instances = dataset->getNumInstances();
+    size_t n_features  = dataset->getNumFeatures();
+    Node* current_node = new Node(config->n_classes, 0, n_instances);
+    if (config->task == CLASSIF
