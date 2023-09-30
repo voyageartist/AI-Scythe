@@ -306,4 +306,9 @@ double evaluateByThreshold(Splitter* splitter, Density* density, VirtualDataset*
 }
 
 Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config, Density* densities) {
-    size_t n_instances = dataset->getNumInstanc
+    size_t n_instances = dataset->getNumInstances();
+    size_t* belongs_to = static_cast<size_t*>(calloc(n_instances, sizeof(size_t)));
+    return CART(dataset, targets, config, densities, belongs_to);
+}
+
+Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* conf
