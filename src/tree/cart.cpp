@@ -315,4 +315,11 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
     size_t n_instances = dataset->getNumInstances();
     size_t n_features  = dataset->getNumFeatures();
     Node* current_node = new Node(config->n_classes, 0, n_instances);
-    if (config->task == CLASSIF
+    if (config->task == CLASSIFICATION_TASK) {
+        for (uint i = 0; i < n_instances; i++) {
+            current_node->counters[static_cast<size_t>((*targets)[i])]++;
+        }
+    }
+    Node* child_node;
+    Tree* tree = new Tree(current_node, config, n_features);
+    size_t** split_sid
