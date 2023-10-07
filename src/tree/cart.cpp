@@ -327,4 +327,8 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
     NodeSpace current_node_space(current_node, n_features, densities);
     SplitManager* split_manager = densities[0].owner;
     tree->split_manager = split_manager;
-    Splitter split
+    Splitter splitter(current_node_space, config, n_instances, n_features, 
+        belongs_to, targets, split_manager);
+    Splitter best_splitter = splitter;
+
+    if (config->max_n_features > n_features) { config->max_n_fe
