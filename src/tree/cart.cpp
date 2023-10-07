@@ -331,4 +331,11 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
         belongs_to, targets, split_manager);
     Splitter best_splitter = splitter;
 
-    if (config->max_n_features > n_features) { config->max_n_fe
+    if (config->max_n_features > n_features) { config->max_n_features = n_features; }
+    size_t max_n_features = config->max_n_features;
+    uint best_feature = 0;
+
+    std::list<NodeSpace> queue;
+    queue.push_back(current_node_space);
+
+    while ((tree->n_nodes < config->max_nod
