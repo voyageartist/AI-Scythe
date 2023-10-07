@@ -322,4 +322,9 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
     }
     Node* child_node;
     Tree* tree = new Tree(current_node, config, n_features);
-    size_t** split_sid
+    size_t** split_sides = new size_t*[2];
+    Density* next_density;
+    NodeSpace current_node_space(current_node, n_features, densities);
+    SplitManager* split_manager = densities[0].owner;
+    tree->split_manager = split_manager;
+    Splitter split
