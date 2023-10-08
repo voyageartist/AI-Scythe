@@ -338,4 +338,9 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
     std::list<NodeSpace> queue;
     queue.push_back(current_node_space);
 
-    while ((tree->n_nodes < config->max_nod
+    while ((tree->n_nodes < config->max_nodes) && !queue.empty()) {
+        current_node_space = queue.front(); queue.pop_front();
+        current_node = current_node_space.owner;
+        double e_cost = INFINITY;
+        double lowest_e_cost = INFINITY;
+        splitter.node = current
