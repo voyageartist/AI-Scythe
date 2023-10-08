@@ -343,4 +343,8 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
         current_node = current_node_space.owner;
         double e_cost = INFINITY;
         double lowest_e_cost = INFINITY;
-        splitter.node = current
+        splitter.node = current_node;
+        splitter.node_space = current_node_space;
+        splitter.n_instances_in_node = current_node->n_instances;
+        for (size_t f : selectFeaturesToConsider(n_features, max_n_features)) {
+            sp
