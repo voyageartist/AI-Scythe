@@ -347,4 +347,10 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
         splitter.node_space = current_node_space;
         splitter.n_instances_in_node = current_node->n_instances;
         for (size_t f : selectFeaturesToConsider(n_features, max_n_features)) {
-            sp
+            splitter.feature_id = f;
+            e_cost = evaluateByThreshold(&splitter, &densities[f], dataset);
+            if (e_cost < lowest_e_cost) {
+                lowest_e_cost = e_cost;
+                best_feature = f;
+                best_splitter = splitter;
+         
