@@ -353,4 +353,9 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
                 lowest_e_cost = e_cost;
                 best_feature = f;
                 best_splitter = splitter;
-         
+            }
+        }
+        splitter.feature_id = best_feature;
+        next_density = &densities[best_feature];
+        double information_gain = informationGain(current_node->counters, next_density->counters_left,
+            next_density->counters_right, c
