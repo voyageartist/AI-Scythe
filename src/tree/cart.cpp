@@ -361,4 +361,10 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
             next_density->counters_right, config->n_classes, config->class_weights);
         split_manager->updateCurrentBestSplit(
             best_feature, splitter.best_split_id, lowest_e_cost, information_gain,
-            static_cast<double>(best_splitter.n_instances_in_node) / static_cast<double>(best_s
+            static_cast<double>(best_splitter.n_instances_in_node) / static_cast<double>(best_splitter.n_instances));
+
+        size_t split_totals[2] = {
+            sum_counts(next_density->counters_left, config->n_classes),
+            sum_counts(next_density->counters_right, config->n_classes)
+        };
+        float left_rate =
