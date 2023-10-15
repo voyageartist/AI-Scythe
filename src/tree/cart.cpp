@@ -373,4 +373,9 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
             (((split_totals[0] && split_totals[1])
                 && (config->task == CLASSIFICATION_TASK))
                 || ((config->task == REGRESSION_TASK)
-                && (best_splitter.n_left > 0) && (
+                && (best_splitter.n_left > 0) && (best_splitter.n_right > 0)))) {
+            Node* new_children[2];
+            data_t split_value = next_density->split_value;
+            current_node->feature_id = static_cast<int>(best_feature);
+            current_node->split_value = split_value;
+  
