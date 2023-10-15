@@ -385,4 +385,10 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
             split_sides[1] = next_density->counters_right;
             int new_left_bounds[2] = {
                 current_node_space.feature_left_bounds[best_feature],
-                best_splitter.best_split_id + 
+                best_splitter.best_split_id + 1};
+            int new_right_bounds[2] = { 
+                best_splitter.best_split_id,
+                current_node_space.feature_right_bounds[best_feature]};
+
+            dataset->_iterator_begin(best_feature);
+  
