@@ -381,4 +381,8 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
             current_node->left_child = new_children[0] = static_cast<Node*>(malloc(sizeof(Node)));
             current_node->right_child = new_children[1] = static_cast<Node*>(malloc(sizeof(Node)));
 
-            split_sides[0] = next_density->coun
+            split_sides[0] = next_density->counters_left;
+            split_sides[1] = next_density->counters_right;
+            int new_left_bounds[2] = {
+                current_node_space.feature_left_bounds[best_feature],
+                best_splitter.best_split_id + 
