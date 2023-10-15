@@ -378,4 +378,7 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
             data_t split_value = next_density->split_value;
             current_node->feature_id = static_cast<int>(best_feature);
             current_node->split_value = split_value;
-  
+            current_node->left_child = new_children[0] = static_cast<Node*>(malloc(sizeof(Node)));
+            current_node->right_child = new_children[1] = static_cast<Node*>(malloc(sizeof(Node)));
+
+            split_sides[0] = next_density->coun
