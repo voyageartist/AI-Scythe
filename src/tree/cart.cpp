@@ -369,4 +369,8 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
         };
         float left_rate = static_cast<float>(split_totals[0]) / static_cast<float>(split_totals[0] + split_totals[1]);
         if ((tree->n_nodes < config->max_nodes) && (!std::isinf(lowest_e_cost)) && (information_gain > 0.0) &&
-            (current_n
+            (current_node_space.current_depth < config->max_height) &&
+            (((split_totals[0] && split_totals[1])
+                && (config->task == CLASSIFICATION_TASK))
+                || ((config->task == REGRESSION_TASK)
+                && (best_splitter.n_left > 0) && (
