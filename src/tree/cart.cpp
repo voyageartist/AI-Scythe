@@ -391,4 +391,9 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
                 current_node_space.feature_right_bounds[best_feature]};
 
             dataset->_iterator_begin(best_feature);
-  
+            #ifdef _OMP
+                #pragma omp simd
+            #endif
+            for (uint j = 0; j < n_instances; j++) {
+                if (belongs_to[j] == static_cast<size_t>(current_node->id)) {
+         
