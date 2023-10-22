@@ -396,4 +396,7 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
             #endif
             for (uint j = 0; j < n_instances; j++) {
                 if (belongs_to[j] == static_cast<size_t>(current_node->id)) {
-         
+                    if (dataset->_iterator_deref() != best_splitter.nan_value) {
+                        // Left child  : belongs_to[j] = tree->n_nodes
+                        // Right child : belongs_to[j] = tree->n_nodes + 1
+                        
