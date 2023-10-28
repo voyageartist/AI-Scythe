@@ -399,4 +399,8 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
                     if (dataset->_iterator_deref() != best_splitter.nan_value) {
                         // Left child  : belongs_to[j] = tree->n_nodes
                         // Right child : belongs_to[j] = tree->n_nodes + 1
-                        
+                        belongs_to[j] = tree->n_nodes + (dataset->_iterator_deref() >= split_value);
+                    }
+                    else {
+                        float random_value = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
+       
