@@ -403,4 +403,10 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
                     }
                     else {
                         float random_value = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
-       
+                        belongs_to[j] = tree->n_nodes + (random_value < left_rate);
+                    }
+                }
+                dataset->_iterator_inc();
+            }
+            for (uint i = 0; i < 2; i++) {
+                child_
