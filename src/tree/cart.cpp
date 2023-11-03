@@ -409,4 +409,8 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
                 dataset->_iterator_inc();
             }
             for (uint i = 0; i < 2; i++) {
+                child_node = new_children[i];
+                child_node->id = static_cast<int>(tree->n_nodes);
+                child_node->split_value = split_value;
+                child_node->n_instances = split_totals[i];
                 child_
