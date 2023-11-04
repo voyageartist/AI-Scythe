@@ -413,4 +413,8 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
                 child_node->id = static_cast<int>(tree->n_nodes);
                 child_node->split_value = split_value;
                 child_node->n_instances = split_totals[i];
-                child_
+                child_node->feature_id = static_cast<int>(best_feature);
+                child_node->left_child = nullptr;
+                child_node->right_child = nullptr;
+                child_node->counters = new (std::nothrow) size_t[config->n_classes];
+                me
