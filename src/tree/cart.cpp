@@ -417,4 +417,7 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
                 child_node->left_child = nullptr;
                 child_node->right_child = nullptr;
                 child_node->counters = new (std::nothrow) size_t[config->n_classes];
-                me
+                memcpy(child_node->counters, split_sides[i], config->n_classes * sizeof(size_t));
+                if (lowest_e_cost > config->min_threshold) {
+                    NodeSpace child_space(current_node_space, n_features);
+                    child_space.owner = c
