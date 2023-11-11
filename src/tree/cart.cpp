@@ -420,4 +420,7 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
                 memcpy(child_node->counters, split_sides[i], config->n_classes * sizeof(size_t));
                 if (lowest_e_cost > config->min_threshold) {
                     NodeSpace child_space(current_node_space, n_features);
-                    child_space.owner = c
+                    child_space.owner = child_node;
+                    child_space.current_depth = current_node_space.current_depth + 1;
+                    child_space.feature_left_bounds[best_feature] = new_left_bounds[i];
+                    child_space.feature_
