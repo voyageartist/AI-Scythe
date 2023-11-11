@@ -423,4 +423,8 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
                     child_space.owner = child_node;
                     child_space.current_depth = current_node_space.current_depth + 1;
                     child_space.feature_left_bounds[best_feature] = new_left_bounds[i];
-                    child_space.feature_
+                    child_space.feature_right_bounds[best_feature] = new_right_bounds[i];
+                    
+                    ordered_push(queue, child_space, config->ordered_queue);
+                    
+                    if (child_space.current
