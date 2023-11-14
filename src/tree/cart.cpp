@@ -427,4 +427,10 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
                     
                     ordered_push(queue, child_space, config->ordered_queue);
                     
-                    if (child_space.current
+                    if (child_space.current_depth > tree->level) {
+                        tree->level = child_space.current_depth;
+                    }
+                }
+                ++tree->n_nodes;
+            }
+            if (config->task == RE
