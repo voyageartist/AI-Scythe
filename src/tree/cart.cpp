@@ -433,4 +433,10 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
                 }
                 ++tree->n_nodes;
             }
-            if (config->task == RE
+            if (config->task == REGRESSION_TASK) {
+                current_node->left_child->mean = best_splitter.mean_left;
+                current_node->right_child->mean = best_splitter.mean_right;
+            }
+        }
+    }
+    split_manager->notifyGrownTre
