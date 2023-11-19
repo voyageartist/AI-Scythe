@@ -439,4 +439,11 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
             }
         }
     }
-    split_manager->notifyGrownTre
+    split_manager->notifyGrownTree();
+    std::cout << "Tree depth : " << tree->level << std::endl;
+    std::cout << "Node count : " << tree->n_nodes << std::endl;
+    delete[] split_sides;
+    return tree;
+}
+
+float* classifyFromTree(VirtualDataset* dataset, size_t n_instanc
