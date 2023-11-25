@@ -461,4 +461,9 @@ float* classifyFromTree(VirtualDataset* dataset, size_t n_instances, size_t n_fe
                 current_node = current_node->left_child;
             }
         }
-        size_t node_instances = current_no
+        size_t node_instances = current_node->n_instances;
+        for (uint c = 0; c < n_classes; c++) {
+            predictions[k * n_classes + c] = static_cast<float>(current_node->counters[c]) / static_cast<float>(node_instances);
+        }
+    }
+    return pred
