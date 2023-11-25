@@ -450,4 +450,8 @@ float* classifyFromTree(VirtualDataset* dataset, size_t n_instances, size_t n_fe
                 Tree* const tree, TreeConfig* config) {
     assert(config->task == CLASSIFICATION_TASK);
     size_t n_classes = config->n_classes;
-    float* predictions = new float[n_inst
+    float* predictions = new float[n_instances * n_classes];
+    for (uint k = 0; k < n_instances; k++) {
+        Node* current_node = tree->root;
+        while (current_node->left_child != NULL) {
+            if ((*dataset)(k, current_node->feature_id) >= curr
