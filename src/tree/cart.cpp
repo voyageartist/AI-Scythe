@@ -454,4 +454,11 @@ float* classifyFromTree(VirtualDataset* dataset, size_t n_instances, size_t n_fe
     for (uint k = 0; k < n_instances; k++) {
         Node* current_node = tree->root;
         while (current_node->left_child != NULL) {
-            if ((*dataset)(k, current_node->feature_id) >= curr
+            if ((*dataset)(k, current_node->feature_id) >= current_node->split_value) {
+                current_node = current_node->right_child;
+            }
+            else {
+                current_node = current_node->left_child;
+            }
+        }
+        size_t node_instances = current_no
