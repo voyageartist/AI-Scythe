@@ -446,4 +446,8 @@ Tree* CART(VirtualDataset* dataset, VirtualTargets* targets, TreeConfig* config,
     return tree;
 }
 
-float* classifyFromTree(VirtualDataset* dataset, size_t n_instanc
+float* classifyFromTree(VirtualDataset* dataset, size_t n_instances, size_t n_features,
+                Tree* const tree, TreeConfig* config) {
+    assert(config->task == CLASSIFICATION_TASK);
+    size_t n_classes = config->n_classes;
+    float* predictions = new float[n_inst
