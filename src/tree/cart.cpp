@@ -478,4 +478,9 @@ data_t* predict(VirtualDataset* data, size_t n_instances, size_t n_features,
         Node* current_node = tree->root;
         while (improving) {
             size_t feature = current_node->feature_id;
-            if (current_node->
+            if (current_node->left_child != NULL) {
+                if ((*data)(k, feature) >= current_node->split_value) {
+                    current_node = current_node->right_child;
+                }
+                else {
+                    current_node = current_n
