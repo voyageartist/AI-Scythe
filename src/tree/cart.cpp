@@ -472,4 +472,10 @@ float* classifyFromTree(VirtualDataset* dataset, size_t n_instances, size_t n_fe
 data_t* predict(VirtualDataset* data, size_t n_instances, size_t n_features,
                 Tree* const tree, TreeConfig* config) {
     assert(config->task == REGRESSION_TASK);
-    data_t* predictio
+    data_t* predictions = new data_t[n_instances];
+    for (uint k = 0; k < n_instances; k++) {
+        bool improving = true;
+        Node* current_node = tree->root;
+        while (improving) {
+            size_t feature = current_node->feature_id;
+            if (current_node->
