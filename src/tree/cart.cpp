@@ -466,4 +466,10 @@ float* classifyFromTree(VirtualDataset* dataset, size_t n_instances, size_t n_fe
             predictions[k * n_classes + c] = static_cast<float>(current_node->counters[c]) / static_cast<float>(node_instances);
         }
     }
-    return pred
+    return predictions;
+}
+
+data_t* predict(VirtualDataset* data, size_t n_instances, size_t n_features,
+                Tree* const tree, TreeConfig* config) {
+    assert(config->task == REGRESSION_TASK);
+    data_t* predictio
