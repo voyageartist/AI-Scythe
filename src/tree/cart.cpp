@@ -483,4 +483,17 @@ data_t* predict(VirtualDataset* data, size_t n_instances, size_t n_features,
                     current_node = current_node->right_child;
                 }
                 else {
-                    current_node = current_n
+                    current_node = current_node->left_child;
+                }
+            }
+            else {
+                improving = false;
+            }
+        }
+        predictions[k] = current_node->mean;
+        // TODO : define a new type of struct
+    }
+    return predictions;
+}
+
+} // namespace
