@@ -16,4 +16,9 @@ SplitManager::SplitManager(Density* const densities, size_t n_features) :
 
     feature_importances = new double[n_features]();
     for (size_t f = 0; f < n_features; f++) {
-        std::shared_ptr<Fea
+        std::shared_ptr<FeatureInfo> feature(
+            static_cast<FeatureInfo*>(malloc(sizeof(FeatureInfo))));
+        size_t n_values = densities[f].n_values;
+        feature->ntimes_best = new size_t[n_values]();
+        feature->n_values = n_values;
+  
