@@ -21,4 +21,10 @@ SplitManager::SplitManager(Density* const densities, size_t n_features) :
         size_t n_values = densities[f].n_values;
         feature->ntimes_best = new size_t[n_values]();
         feature->n_values = n_values;
-  
+        features.push_back(feature);
+    }
+}
+
+void SplitManager::updateCurrentBestSplit(size_t feature_id, size_t split_id, double score, 
+    double information_gain, double weight) {
+    // TODO : adapt the manager's behavior as a fun
