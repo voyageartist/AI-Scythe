@@ -27,4 +27,10 @@ SplitManager::SplitManager(Density* const densities, size_t n_features) :
 
 void SplitManager::updateCurrentBestSplit(size_t feature_id, size_t split_id, double score, 
     double information_gain, double weight) {
-    // TODO : adapt the manager's behavior as a fun
+    // TODO : adapt the manager's behavior as a function of the given score
+    features.at(feature_id)->ntimes_best[split_id]++;
+    feature_importances[feature_id] += weight * information_gain;
+}
+
+bool SplitManager::shouldEvaluate(size_t feature_id, size_t split_id) {
+  
