@@ -33,4 +33,11 @@ void SplitManager::updateCurrentBestSplit(size_t feature_id, size_t split_id, do
 }
 
 bool SplitManager::shouldEvaluate(size_t feature_id, size_t split_id) {
-  
+    // TODO
+    if ((n_grown_trees > 0) && (features.at(feature_id)->ntimes_best[split_id] == 0)) {
+        return true; // false
+    }
+    return true;
+}
+
+std::vector<size_t> selectFeaturesToConsider(size_t n_features, size_t 
