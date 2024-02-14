@@ -40,4 +40,9 @@ bool SplitManager::shouldEvaluate(size_t feature_id, size_t split_id) {
     return true;
 }
 
-std::vector<size_t> selectFeaturesToConsider(size_t n_features, size_t 
+std::vector<size_t> selectFeaturesToConsider(size_t n_features, size_t max_n_features) {
+    if (max_n_features > n_features) { max_n_features = n_features; }
+    std::vector<size_t> features_to_use;
+    std::vector<size_t> indices;
+    for (size_t f = 0; f < n_features; f++) {
+        indices.push_b
