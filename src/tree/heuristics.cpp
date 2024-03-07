@@ -45,4 +45,10 @@ std::vector<size_t> selectFeaturesToConsider(size_t n_features, size_t max_n_fea
     std::vector<size_t> features_to_use;
     std::vector<size_t> indices;
     for (size_t f = 0; f < n_features; f++) {
-        indices.push_b
+        indices.push_back(f);
+    }
+    for (size_t i = 0; i < max_n_features; i++) {
+        size_t rng = rand() % (n_features - i);
+        size_t random_feature_id = indices.at(rng);
+        features_to_use.push_back(random_feature_id);
+      
