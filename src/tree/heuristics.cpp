@@ -51,4 +51,9 @@ std::vector<size_t> selectFeaturesToConsider(size_t n_features, size_t max_n_fea
         size_t rng = rand() % (n_features - i);
         size_t random_feature_id = indices.at(rng);
         features_to_use.push_back(random_feature_id);
-      
+        indices.erase(indices.begin() + rng);
+    }
+    return features_to_use;
+}
+
+} // namespace
