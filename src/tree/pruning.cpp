@@ -19,4 +19,9 @@ size_t Scythe::cut(Node* root) {
     queue.push(root->left_child);
     queue.push(root->right_child);
     while (!queue.empty()) {
-        Node* node = queue.fro
+        Node* node = queue.front(); queue.pop();
+        if (node->left_child != nullptr) { queue.push(node->left_child); }
+        if (node->right_child != nullptr) { queue.push(node->right_child); }
+        delete node; n_removed_nodes++;
+    }
+    root->left_child = nullptr;
