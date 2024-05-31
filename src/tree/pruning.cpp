@@ -25,3 +25,13 @@ size_t Scythe::cut(Node* root) {
         delete node; n_removed_nodes++;
     }
     root->left_child = nullptr;
+    root->right_child = nullptr;
+    return n_removed_nodes;
+}
+
+int Scythe::prune(size_t max_depth) {
+    std::vector<Cut> slicings;
+    for (Tree* tree : trees) {
+        std::queue<NodeLevel> queue;
+        NodeLevel current_node_space;
+        c
