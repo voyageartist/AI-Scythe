@@ -34,4 +34,8 @@ int Scythe::prune(size_t max_depth) {
     for (Tree* tree : trees) {
         std::queue<NodeLevel> queue;
         NodeLevel current_node_space;
-        c
+        current_node_space.owner = tree->root;
+        current_node_space.level = 1;
+        queue.push(current_node_space);
+        while (!queue.empty()) {
+            NodeLevel current_node_space = queue.front(); queue.pop();
