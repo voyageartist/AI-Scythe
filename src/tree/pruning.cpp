@@ -39,3 +39,7 @@ int Scythe::prune(size_t max_depth) {
         queue.push(current_node_space);
         while (!queue.empty()) {
             NodeLevel current_node_space = queue.front(); queue.pop();
+            Node* current_node = current_node_space.owner;
+            if (current_node->left_child != nullptr) {
+                if (current_node_space.level >= max_depth) {
+                    // tree->n_nodes -= cut(current_node
