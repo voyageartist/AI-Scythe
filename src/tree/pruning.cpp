@@ -53,4 +53,8 @@ int Scythe::prune(size_t max_depth) {
                 }
                 else {
                     NodeLevel left_space;
-     
+                    left_space.owner = current_node->left_child;
+                    left_space.level = current_node_space.level + 1;
+                    queue.push(left_space);
+                    NodeLevel right_space;
+   
