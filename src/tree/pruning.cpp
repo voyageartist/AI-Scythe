@@ -63,4 +63,12 @@ int Scythe::prune(size_t max_depth) {
                 }
             }
         }
-   
+    }
+    prunings.push_back(slicings);
+    return n_prunings++;
+}
+
+void Scythe::restore(int pruning_id) {
+    for (Cut slicing : prunings.at(pruning_id)) {
+        slicing.leaf->left_child  = slicing.left;
+        slicing.leaf->right_ch
