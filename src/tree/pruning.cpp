@@ -71,4 +71,15 @@ int Scythe::prune(size_t max_depth) {
 void Scythe::restore(int pruning_id) {
     for (Cut slicing : prunings.at(pruning_id)) {
         slicing.leaf->left_child  = slicing.left;
-        slicing.leaf->right_ch
+        slicing.leaf->right_child = slicing.right;
+    }
+}
+
+void Scythe::prune(int pruning_id) {
+    for (Cut slicing : prunings.at(pruning_id)) {
+        slicing.leaf->left_child  = nullptr;
+        slicing.leaf->right_child = nullptr;
+    }
+}
+
+} // namespace
