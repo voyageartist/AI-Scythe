@@ -17,4 +17,19 @@ namespace scythe {
 
 struct NodeLevel {
     Node* owner;
-    
+    size_t level;
+};
+
+struct Cut {
+    Node* leaf;
+    Node* left;
+    Node* right;  
+};
+
+
+class Scythe {
+private:
+	std::vector<Tree*> trees;
+    std::vector<std::vector<Cut>> prunings;
+    size_t n_prunings;
+    bool delete_branches
