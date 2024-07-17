@@ -1,1 +1,1 @@
-# AI-Scythe\n
+# AI-Scythe\n\n<i> Under development </i> Deep learning library based on deep forests\n\nA deep forest consists of a stack of layers, where each of them learns from both the input features and the output features of the previous layer. Each layer is made of 
